@@ -1,0 +1,25 @@
+<!-->a [routerLink]="appRouterUrls.LOGIN">login</a-->
+<div class="container">
+    <mat-toolbar>
+        <div class="tabs">
+            <nav mat-tab-nav-bar>
+                <a class="tab" mat-tab-link routerLinkActive #jji="routerLinkActive" [active]="jji.isActive" [routerLink]="appRouterUrls.DEFAULT">justjoin.it</a>
+                <a class="tab" mat-tab-link routerLinkActive #jb="routerLinkActive" [active]="jb.isActive" [routerLink]="appRouterUrls.BRANDS">justbrands.it</a>
+            </nav>
+        </div>
+        <div class="paragraph">
+            <p >The biggest IT job board for Polish Devs. </p>
+        </div>
+        <div class="menuOptions">
+            <a >Magazine </a>
+            <a >Event </a>
+            <a >About us </a>
+            <a >Contact </a>
+            <button class="postAJob" mat-stroked-button>Post a job </button>
+            <button mat-button>
+                <mat-icon>list</mat-icon>
+            </button>
+        </div>
+    </mat-toolbar>
+</div>
+

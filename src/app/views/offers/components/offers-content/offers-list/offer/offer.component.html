@@ -1,0 +1,28 @@
+<a [routerLink]="[tag]">
+    <div class="container">
+        <div class="logo">
+            {{offer.getCompanyLogo()}}
+        </div>
+        <div class="subContainer">
+            <div class="myRow">
+                <div class="position">
+                    {{offer.getPosition()}}
+                </div>
+                <div class="salaryDate">
+                    {{offer.getSalaryAsString()}}
+                    {{offer.getDateTag()}}
+                </div>
+            </div>
+            <div class="myRow">
+                <div class="companyInfos">
+                    {{offer.getCompanyName()}}
+                    {{offer.getCompanyAddress().getAddress()}}
+                </div>
+                <div class="tags">
+                    {{offer.getTags()}}
+                </div>
+            </div>
+        </div>
+    </div>
+</a>
+<hr>

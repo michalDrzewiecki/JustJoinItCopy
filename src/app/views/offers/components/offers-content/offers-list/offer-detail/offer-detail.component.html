@@ -1,0 +1,6 @@
+<div class="container" *ngIf="!error">
+    <h2>FIRMA: {{offer.getCompanyName()}}</h2>
+    <h4>ROZMIAR FIRMY: {{offer.getCompanySize()}}</h4>
+    <h4>OPIS: {{offer.getDescription()}}</h4>
+</div>
+<div class="error"*ngIf="error">sorry we Could not find this offer</div>

@@ -1,0 +1,23 @@
+.container{
+    display: flex;
+}
+.subContainer{
+    width:100%;
+}
+
+a{
+    padding:20px;
+}
+.myRow{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.options{
+    margin-left: auto;
+}
+
+.style{
+    margin-left: auto;
+}
