@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Offer } from 'src/app/views/offers/model/offer.model';
+import { Offer } from '../../../../offers.interfaces'
 import { OffersService } from 'src/app/views/offers/services';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 
@@ -20,7 +20,7 @@ export class OfferDetailComponent implements OnInit {
   ngOnInit(){
     this.route.params.subscribe(
       (params: Params) => {
-        this.tag = params['tag'];
+        this.tag = params['id'];
         this.offer = this.offersService.getOffer(this.tag);
         if(typeof this.offer === "undefined"){
           this.error = true;

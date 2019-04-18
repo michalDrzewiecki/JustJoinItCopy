@@ -1,28 +1,49 @@
-<a [routerLink]="[tag]">
-    <div class="container">
-        <div class="logo">
-            {{offer.getCompanyLogo()}}
-        </div>
-        <div class="subContainer">
-            <div class="myRow">
-                <div class="position">
-                    {{offer.getPosition()}}
+<div class="container" fxLayout="row" [routerLink]="[tag]">
+    <div id="frame">
+    </div>
+    <div id="logo">
+        <h3>{{offer.companyLogo}}</h3>
+    </div>
+    <div id="rows">
+        <div class="myRow" fxLayout.gt-sm="row">
+            <div ngClass.gt-sm="position" ngClass.lt-md="positionForSM">
+                <p >{{ offer.position }}</p>
+            </div>
+            <div ngClass.gt-sm="subContainer" ngClass.lt-md="subContainerForSM" fxLayout.lt-md="row">
+                <div id="money">
+                    <p>{{ getMoney() }}</p>
                 </div>
-                <div class="salaryDate">
-                    {{offer.getSalaryAsString()}}
-                    {{offer.getDateTag()}}
+                <div class="date">
+                    <p class="tag" [ngClass]="{tagBackground: getDate()=='New'}">{{ getDate() }}</p>
                 </div>
             </div>
-            <div class="myRow">
-                <div class="companyInfos">
-                    {{offer.getCompanyName()}}
-                    {{offer.getCompanyAddress().getAddress()}}
+        </div>
+        <div class="myRow" fxLayout="row" fxHide.lt-md>
+            <div id="company" fxLayout="row">
+                <div class="icon">
+                    <mat-icon>domain</mat-icon>
                 </div>
-                <div class="tags">
-                    {{offer.getTags()}}
+                <div class="label">
+                    <p>{{ offer.companyName }}</p>
+                </div>
+            </div>
+            <div id="address" fxLayout="row">
+                <div class="icon">
+                    <mat-icon>place</mat-icon>    
+                </div>
+                <div class="label">
+                    <p>{{ getAddress() }}</p>
+                </div>
+            </div>
+            <div class="subContainer" fxLayout="row">
+                <div id="tags" fxLayout="row">
+                    <p 
+                        class="tag"
+                        *ngFor="let tag of offer.tags"
+                        >{{ tag }}
+                    </p>
                 </div>
             </div>
         </div>
     </div>
-</a>
-<hr>
+</div>

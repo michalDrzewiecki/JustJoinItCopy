@@ -1,1 +1,1 @@
-.container{display:flex;width:100%;justify-content:space-around}.myColumn{width:100%}
+.container{min-height:75vh;width:100%;background-color:#F5F5F5}.myColumn{min-height:75vh;width:100%}.myColumnForSm{min-height:81vh;width:100%}

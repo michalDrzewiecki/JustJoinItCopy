@@ -6,6 +6,10 @@ import {
   MatToolbarModule,
   MatTabsModule,
   MatIconModule, 
+  MatSidenavModule,
+  MatListModule,
+  MatSlideToggleModule,
+  MatMenuModule,
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -20,6 +24,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatToolbarModule,
     MatTabsModule,
     MatIconModule,
+    MatSidenavModule,
+    MatListModule,
+    MatSlideToggleModule,
+    MatMenuModule,
   ],
   exports: [
     BrowserAnimationsModule,
@@ -28,7 +36,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatButtonModule,
     MatToolbarModule,
     MatTabsModule,
-    MatIconModule
+    MatIconModule,
+    MatSidenavModule,
+    MatListModule,
+    MatSlideToggleModule,
+    MatMenuModule,
   ]
 })
 export class MaterialModule { }

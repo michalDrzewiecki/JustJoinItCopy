@@ -1,8 +1,10 @@
 <div class="container">
-    <div class="myColumn">
-        <router-outlet></router-outlet>
-    </div>
-    <div class="myColumn">
-        <app-map></app-map>
+    <div id="contentForNORM" fxLayout="row">
+        <div ngClass.gt-sm="myColumn" ngClass.lt-md="myColumnForSm">
+            <router-outlet></router-outlet>
+        </div>
+        <div class="myColumn" fxHide.lt-md>
+            <app-map></app-map>
+        </div>
     </div>
 </div>

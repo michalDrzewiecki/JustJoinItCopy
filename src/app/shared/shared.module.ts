@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SharedComponents } from './components';
-import { MaterialModule } from '../material/material.module'
+import { MaterialModule } from '../material/material.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { NavigationServices } from './services';
 
 @NgModule({
   imports: [
     RouterModule,
-    MaterialModule
+    MaterialModule,
+    FlexLayoutModule
   ],
   exports: [
     ...SharedComponents
@@ -15,7 +18,7 @@ import { MaterialModule } from '../material/material.module'
     ...SharedComponents
   ],
   providers: [
-
+    ...NavigationServices
   ]
 })
 export class SharedModule { }

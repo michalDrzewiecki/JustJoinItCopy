@@ -1,27 +1,125 @@
-<!--a [routerLink]="appRouterUrls.LOGIN">login</a-->
 <div class="container">
-    <mat-toolbar>
-        <div class="subContainer">
-            <div class="myRow">
-                <div class="cities">
-                        <a >Warszawa</a>
-                        <a >Gdansk</a>    
+    <mat-toolbar id="matToolbarForNORM" fxHide.lt-md>
+        <div class="subContainer" >
+            <div class="myRow" fxLayout="row">
+                <div fxLayout="row" class="cities">
+                    <div #cityParent fxLayout="row">
+                        <button *ngFor="let city of mainCities" 
+                            class = "myButton filterButton"
+                            mat-stroked-button
+                            (click)="onCityButtonClicked($event)"
+                            id={{city}}>{{city}}
+                        </button>
+                        <button 
+                            #hiddenCity
+                            class="myButton filterButton" 
+                            mat-stroked-button
+                            (click)="onCityButtonClicked($event)"
+                            id={{hiddenCityName}}
+                            >{{ hiddenCityName }}
+                        </button> 
+                    </div>
+                    <mat-menu #hiddenCitiesMenu>
+                        <button *ngFor="let city of hiddenCities"
+                            mat-menu-item
+                            (click)="onCityHiddenButtonClicked($event)"
+                            id="{{city}}">{{ city }}
+                        </button>
+                    </mat-menu>
+                    <button class="iconicButton" [matMenuTriggerFor]="hiddenCitiesMenu">
+                        <mat-icon>more_horiz</mat-icon>
+                    </button>
                 </div>
-                <div class="style">
-                        <a >DAY/NIGHT</a>
+                <div id="dayNightOption">
+                    <mat-icon id="leftControllImage">wb_sunny</mat-icon>
+                    <mat-slide-toggle color="primary"></mat-slide-toggle>
+                    <mat-icon id="rightControllImage">brightness_3</mat-icon>
                 </div>
             </div>
-            <div class="myRow">
-                <div class="technologies">
-                        <a >JavaScript </a>
-                        <a >Java </a>
-                        <a >C++ </a>
+            <div fxLayout="row">
+                <div fxLayout="row" class="technologies">
+                    <div #technologyParent fxLayout="row" >
+                            <button *ngFor="let technology of mainTechnologies"
+                                class = "myButton filterButton"
+                                mat-stroked-button
+                                (click)="onTechnologyButtonClicked($event)"
+                                id={{technology}}>{{ technology }}
+                            </button>
+                            <button 
+                                #hiddenTechnology
+                                class="myButton filterButton" 
+                                mat-stroked-button
+                                (click)="onTechnologyButtonClicked($event)"
+                                id={{hiddenTechnologyName}}
+                                >{{ hiddenTechnologyName }}
+                            </button>
+                        </div> 
+                        <mat-menu #hiddenTechnologiesMenu>
+                            <button *ngFor="let technology of hiddenTechnologies"
+                                mat-menu-item
+                                (click)="onTechnologyHiddenButtonClicked($event)"
+                                id="{{technology}}">{{ technology }}
+                            </button>
+                        </mat-menu>
+                        <button class="iconicButton" [matMenuTriggerFor]="hiddenTechnologiesMenu">
+                            <mat-icon>more_horiz</mat-icon>
+                        </button>
                 </div>  
                 <div class="options">
-                        <a >salary</a>
-                        <a >experience</a>
+                    <mat-menu #salary>
+                        <div id="salaryMenu" mat-menu-item fxLayout="column">
+                            <span>Choose min salary</span>
+                            <mat-slider 
+                                thumbLabel
+                                [displayWith]="formatLabel"
+                                min="0"
+                                step="500"
+                                max="50000"
+                                (input)="onSliderSalaryChange($event)">
+                            </mat-slider>
+                        </div>
+                    </mat-menu>
+                    <mat-menu #expLevel >
+                        <button *ngFor="let elem of levels" 
+                            mat-menu-item
+                            (click)="onExperienceLevelChoose($event)"
+                            id="{{elem}}">{{ elem }}
+                        </button>
+                    </mat-menu>
+                    <button class="expandableButton" mat-stroked-button [matMenuTriggerFor]="salary">
+                        <mat-icon id="leftControllImage">attach_money</mat-icon>
+                        <span #salaryText>Salary</span>
+                        <mat-icon id="rightControllImage">keyboard_arrow_down</mat-icon>
+                    </button>
+                    <button class="expandableButton" mat-stroked-button [matMenuTriggerFor]="expLevel">
+                        <mat-icon id="leftControllImage">trending_up</mat-icon>
+                        <span #experienceText>Exp.level</span>
+                        <mat-icon id="rightControllImage">keyboard_arrow_down</mat-icon>
+                    </button>               
                 </div>
             </div>   
         </div>
+    </mat-toolbar>
+    <mat-toolbar id="matToolbarForSM" fxHide.gt-sm fxLayout="row">
+        <div class="columnForSM">
+            <select name="" id="citySelect" class="selectForSM">
+                <option selected disabled hidden></option>
+                <option 
+                    *ngFor="let city of mainCities.concat(hiddenCities)" 
+                    [value]="city"
+                    >{{ city }}
+                </option>
+            </select>
+        </div>
+        <div class="columnForSM">
+            <select id="citySelect" class="selectForSM">
+                <option selected disabled hidden></option>
+                <option 
+                    *ngFor="let technology of mainTechnologies.concat(hiddenTechnologies)" 
+                    [value]="technology"
+                    >{{ technology }}
+                </option>
+            </select>
+        </div>      
     </mat-toolbar>
 </div>

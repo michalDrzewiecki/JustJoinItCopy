@@ -1,5 +1,28 @@
-<app-navigation-menu></app-navigation-menu>
-<app-filter></app-filter>
-<router-outlet></router-outlet>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav role="navigation" position="end">
+        <app-sidenav-list (sidenavClose)="sidenav.close()"></app-sidenav-list>
+    </mat-sidenav>
+    <mat-sidenav #sidenavForSM role="navigation">
+        <app-sidenav-list (sidenavForSMClose)="sidenavForSM.close()"></app-sidenav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div id="content">
+            <div [ngClass.gt-sm]="'header'" [ngClass.lt-md]="'headerForSM'">
+                <app-navigation-menu id="nav" (sidenavForSMToggle)="sidenavForSM.toggle()" (sidenavToggle)="sidenav.toggle()"></app-navigation-menu>
+                <app-filter id="filter" ></app-filter>
+            </div>
+            <div [ngClass.gt-sm]="'pageContent'" [ngClass.lt-md]="'pageContentForSM'">
+                <router-outlet></router-outlet>
+            </div>           
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+
+
+
+
 
 

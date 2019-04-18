@@ -1,0 +1,45 @@
+<mat-nav-list>
+    <h2 id="header">justjoin.it</h2>
+    <hr>
+    <div id="sidenavForSM" *ngIf="isSMDevice()">
+        <a mat-list-item (click)="onSidenavClose()" [routerLink]="appRouterUrls.OFFERS">
+            <mat-icon>calendar_today</mat-icon>
+            <span class="nav-caption">Offers</span>
+        </a>
+        <a mat-list-item (click)="onSidenavClose()" [routerLink]="appRouterUrls.BRANDS">
+            <mat-icon>domain</mat-icon>
+            <span class="nav-caption">Brands</span>
+        </a>
+    </div>
+    <div id="sidenavForNORM" *ngIf="!isSMDevice()">
+        <a mat-list-item (click)="onSidenavClose()">
+                <mat-icon>business_center</mat-icon>
+                <span class="nav-caption">Employer Panel</span>
+            </a>
+        <a mat-list-item (click)="onSidenavClose()">
+            <mat-icon>people</mat-icon>
+            <span class="nav-caption">JustJoinIT</span>
+        </a>
+        <a mat-list-item (click)="onSidenavClose()">
+            <mat-icon>wifi</mat-icon>
+            <span class="nav-caption">RSS</span>
+        </a>
+        <a mat-list-item (click)="onSidenavClose()">
+            <mat-icon>attachment</mat-icon>
+            <span class="nav-caption">Terms</span>
+        </a>
+        <a mat-list-item (click)="onSidenavClose()">
+            <mat-icon>attachment</mat-icon>
+            <span class="nav-caption">Policy</span>
+        </a>
+    </div>
+    <hr>
+    <a mat-list-item (click)="onSidenavClose()">
+            <mat-icon>eject</mat-icon>
+            <span class="nav-caption">Login</span>
+    </a>
+    <a mat-list-item (click)="onSidenavClose()">
+        <mat-icon>input</mat-icon>
+        <span class="nav-caption">Signup</span>
+    </a>
+</mat-nav-list>

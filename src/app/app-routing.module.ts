@@ -6,12 +6,12 @@ import { OffersContentComponent, OfferDetailComponent, OffersListComponent} from
 import { BrandsComponent } from './views/brands/components';
 
 const routes: Routes = [
-  { path: '', redirectTo: AppRouterUrls.DEFAULT, pathMatch: 'full' },
+  { path: '', redirectTo: AppRouterUrls.OFFERS, pathMatch: 'full' },
   { 
-    path: AppRoutes.DEFAULT, component: OffersContentComponent,
+    path: AppRoutes.OFFERS, component: OffersContentComponent,
     children:[
       {path: '', pathMatch: 'full', component: OffersListComponent},
-      {path: AppRoutes.OFFER_TAG, component: OfferDetailComponent}
+      {path: ':id', component: OfferDetailComponent}
     ]
   },
   { path: AppRoutes.BRANDS, component: BrandsComponent },
@@ -22,7 +22,7 @@ const routes: Routes = [
       { path: AppRoutes.LOGIN, component: AuthLoginComponent }
     ]
   },
-  {path: AppRoutes.ERROR, redirectTo: AppRouterUrls.DEFAULT}
+  {path: AppRoutes.ERROR, redirectTo: AppRouterUrls.OFFERS}
 ];
 
 @NgModule({

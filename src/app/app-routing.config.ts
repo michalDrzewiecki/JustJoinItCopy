@@ -5,25 +5,22 @@
 
 export const AppRoutes = {
   ERROR: '**',
-  DEFAULT: 'offers',
+  OFFERS: 'offers',
   AUTH: 'auth',
   LOGIN: 'login',
-  BRANDS: 'brands',
-  OFFER_TAG: ':tag'
+  BRANDS: 'brands'
 };
 
 export const AppRouterLinks = {
   ERROR: [AppRoutes.ERROR],
-  DEFAULT: [AppRoutes.DEFAULT],
+  OFFERS: [AppRoutes.OFFERS],
   LOGIN: [AppRoutes.AUTH, AppRoutes.LOGIN],
   BRANDS: [AppRoutes.BRANDS],
-  OFFER_TAG: [AppRoutes.OFFER_TAG]
 };
 
 export const AppRouterUrls = {
   ERROR: `/${AppRoutes.ERROR}`,
-  DEFAULT: `/${AppRoutes.DEFAULT}`,
+  OFFERS: `/${AppRoutes.OFFERS}`,
   LOGIN: `/${AppRoutes.AUTH}/${AppRoutes.LOGIN}`,
-  BRANDS: `/${AppRoutes.BRANDS}`,
-  OFFER_TAG: `/${AppRoutes.OFFER_TAG}`
+  BRANDS: `/${AppRoutes.BRANDS}`
 };

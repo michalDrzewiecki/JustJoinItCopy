@@ -1,24 +1,40 @@
-<!-->a [routerLink]="appRouterUrls.LOGIN">login</a-->
 <div class="container">
     <mat-toolbar>
-        <div class="tabs">
-            <nav mat-tab-nav-bar>
-                <a class="tab" mat-tab-link routerLinkActive #jji="routerLinkActive" [active]="jji.isActive" [routerLink]="appRouterUrls.DEFAULT">justjoin.it</a>
-                <a class="tab" mat-tab-link routerLinkActive #jb="routerLinkActive" [active]="jb.isActive" [routerLink]="appRouterUrls.BRANDS">justbrands.it</a>
-            </nav>
+        <div id="navForNORM" fxHide.lt-md fxLayout="row" fxFlex="100%">
+            <div id="tabs">
+                <nav mat-tab-nav-bar id="test">
+                    <a id="tab" mat-tab-link routerLinkActive #jji="routerLinkActive" [active]="jji.isActive" [routerLink]="appRouterUrls.OFFERS">justjoin.it</a>
+                    <a id="tab" mat-tab-link routerLinkActive #jb="routerLinkActive" [active]="jb.isActive" [routerLink]="appRouterUrls.BRANDS">justbrands.it</a>
+                </nav>
+            </div>
+            <div id="paragraph" fxHide.lt-lg>
+                <p >The biggest IT job board for Polish Devs. </p>
+            </div>
+            <div id="menuOptions">
+                <a>Magazine</a>
+                <a>Event</a>
+                <a>About us</a>
+                <a>Contact</a>
+                <button id="postAJob" mat-stroked-button>Post a job </button>
+                <button id="iconicButton" mat-stroked-button (click)="onToggleSidenav()">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+            </div>
         </div>
-        <div class="paragraph">
-            <p >The biggest IT job board for Polish Devs. </p>
-        </div>
-        <div class="menuOptions">
-            <a >Magazine </a>
-            <a >Event </a>
-            <a >About us </a>
-            <a >Contact </a>
-            <button class="postAJob" mat-stroked-button>Post a job </button>
-            <button mat-button>
-                <mat-icon>list</mat-icon>
-            </button>
+        <div id="navForSM" fxHide.gt-sm fxLayout="row" fxFlex="100%">
+            <div>
+                <button mat-button (click)="onToggleSidenavForSM()">
+                    <mat-icon>menu</mat-icon>
+                </button>
+            </div>
+            <div>
+                <h2>justjoin.it</h2>
+            </div>
+            <div id="dayNightOption">
+                <mat-icon id="leftControllImage">wb_sunny</mat-icon>
+                <mat-slide-toggle color="primary"></mat-slide-toggle>
+                <mat-icon id="rightControllImage">brightness_3</mat-icon>
+            </div>
         </div>
     </mat-toolbar>
 </div>
