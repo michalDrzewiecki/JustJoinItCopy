@@ -1,18 +1,28 @@
 <mat-sidenav-container>
     <mat-sidenav #sidenav role="navigation" position="end">
-        <app-sidenav-list (sidenavClose)="sidenav.close()"></app-sidenav-list>
+        <app-sidenav (sidenavClose)="sidenav.close()"></app-sidenav>
     </mat-sidenav>
     <mat-sidenav #sidenavForSM role="navigation">
-        <app-sidenav-list (sidenavForSMClose)="sidenavForSM.close()"></app-sidenav-list>
+        <app-sidenav (sidenavClose)="sidenavForSM.close()"></app-sidenav>
     </mat-sidenav>
     <mat-sidenav-content>
-        <div id="content">
-            <div [ngClass.gt-sm]="'header'" [ngClass.lt-md]="'headerForSM'">
-                <app-navigation-menu id="nav" (sidenavForSMToggle)="sidenavForSM.toggle()" (sidenavToggle)="sidenav.toggle()"></app-navigation-menu>
-                <app-filter id="filter" ></app-filter>
+        <div id="container">
+            <div id="navigation">
+                <app-navigation-menu 
+                    id="nav" 
+                    (sidenavToggle)="sidenav.toggle()"
+                    (sidenavToggleForSM)="sidenavForSM.toggle()">
+                </app-navigation-menu>
             </div>
-            <div [ngClass.gt-sm]="'pageContent'" [ngClass.lt-md]="'pageContentForSM'">
-                <router-outlet></router-outlet>
+            <div id="filtration" >
+                <div [ngClass.gt-sm]="'filtrationForNORM'" [ngClass.lt-md]="'filtrationForSM'">
+                    <app-filter id="filter"></app-filter>
+                </div> 
+            </div>
+            <div id="content" >
+                <div [ngClass.gt-sm]="'contentForNORM'" [ngClass.lt-md]="'contentForSM'">
+                    <router-outlet></router-outlet>
+                </div>
             </div>           
         </div>
     </mat-sidenav-content>

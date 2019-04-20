@@ -2,13 +2,13 @@ import { Component, EventEmitter, Output, Input, OnInit } from '@angular/core';
 import { NavigationService } from 'src/app/shared/services';
 
 @Component({
-  selector: 'app-sidenav-list',
-  templateUrl: './sidenav-list.component.html',
-  styleUrls: ['./sidenav-list.component.scss'],
+  selector: 'app-sidenav',
+  templateUrl: './sidenav.component.html',
+  styleUrls: ['./sidenav.component.scss'],
 })
-export class SidenavListComponent implements OnInit{
+export class SidenavComponent implements OnInit{
   @Output() sidenavClose = new EventEmitter<void>();
-  @Output() sidenavForSMClose = new EventEmitter<void>();
+  //@Output() sidenavForSMClose = new EventEmitter<void>();
   appRouterUrls;
   
   constructor(private navigationService: NavigationService) {}
@@ -18,10 +18,10 @@ export class SidenavListComponent implements OnInit{
   }
   onSidenavClose(){
     this.sidenavClose.emit();
-    this.sidenavForSMClose.emit();
+    //this.sidenavForSMClose.emit();
   }
-  isSMDevice():boolean{
+  /*isSMDevice():boolean{
     return this.navigationService.getSMDevice();
-  }
+  }*/
 
 }

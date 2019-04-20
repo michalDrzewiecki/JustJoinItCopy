@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter} from '@angular/core';
 import { NavigationService } from '../../services';
 
 @Component({
@@ -6,23 +6,17 @@ import { NavigationService } from '../../services';
   templateUrl: './navigation-menu.component.html',
   styleUrls: ['./navigation-menu.component.scss'],
 })
-export class NavigationMenuComponent implements OnInit{
+export class NavigationMenuComponent{
   @Output() sidenavToggle = new EventEmitter<void>();
-  @Output() sidenavForSMToggle = new EventEmitter<void>();
+  @Output() sidenavToggleForSM = new EventEmitter<void>();
   appRouterUrls;
 
   constructor(private navigationService: NavigationService) {}
 
-  ngOnInit(){
-    this.appRouterUrls = this.navigationService.getAppRouterUrls();
-  }
   onToggleSidenav(){
-    this.navigationService.unsetSMDevice();
     this.sidenavToggle.emit();
   }
-
   onToggleSidenavForSM(){
-    this.navigationService.setSMDevice();
-    this.sidenavForSMToggle.emit();
+    this.sidenavToggleForSM.emit();
   }
 }

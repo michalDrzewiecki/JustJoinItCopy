@@ -1,0 +1,35 @@
+<div id="container" fxLayout="row" >
+    <div id="tabsAndP" fxLayout="row">
+        <div id="tabs">
+            <nav mat-tab-nav-bar>
+                <a id="tab" 
+                    mat-tab-link 
+                    routerLinkActive 
+                    #jji="routerLinkActive" 
+                    [active]="jji.isActive" 
+                    [routerLink]="appRouterUrls.OFFERS">justjoin.it
+                </a>
+                <a id="tab" 
+                    mat-tab-link 
+                    routerLinkActive 
+                    #jb="routerLinkActive" 
+                    [active]="jb.isActive" 
+                    [routerLink]="appRouterUrls.BRANDS">justbrands.it
+                </a>
+            </nav>
+        </div>
+        <div id="paragraph" fxHide.lt-lg>
+            <p>The biggest IT job board for Polish Devs. </p>
+        </div>
+    </div>
+    <div id="menuOptions">
+        <a class="option">Magazine</a>
+        <a class="option">Event</a>
+        <a class="option">About us</a>
+        <a class="option">Contact</a>
+        <button id="postAJob" mat-stroked-button>Post a job </button>
+        <button id="iconicButton" mat-stroked-button (click)="onToggleSidenav()">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+    </div>
+</div>

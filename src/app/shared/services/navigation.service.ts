@@ -2,18 +2,8 @@ import { AppRouterUrls } from '../../app-routing.config';
 import { ExperienceLevel, City, Technology } from '../shared.enums';
 
 export class NavigationService {
-    isSMDevice: boolean = false;
     constructor(){}
 
-    setSMDevice(){
-        this.isSMDevice = true;
-    }
-    unsetSMDevice(){
-        this.isSMDevice = false;
-    }
-    getSMDevice():boolean{
-        return this.isSMDevice;
-    }
     getAppRouterUrls(){
         return AppRouterUrls;
     }
@@ -26,7 +16,7 @@ export class NavigationService {
         }
         return levels.slice();
     }
-    getCities(mainCities: string[], hiddenCities: string[]){
+    getCities(mainCities: string[], hiddenCities: string[]): void{
         for(let city in City){
             if(isNaN(Number(city))){
                 if(Number(City[city]) == 1){
@@ -39,7 +29,7 @@ export class NavigationService {
         }
     }
 
-    getTechnologies(mainTechnologies: string[], hiddenTechnologies: string[]){
+    getTechnologies(mainTechnologies: string[], hiddenTechnologies: string[]):void{
         for(let technology in Technology){
             if(isNaN(Number(technology))){
                 if(Number(Technology[technology]) == 1){

@@ -1,8 +1,10 @@
+@import '../../../../styles/overrides';
+
 #header{
     display: flex;
     justify-content: center;
 }
 .nav-caption{
-    padding-left: 15px;
+    @extend %sidenavElement;
 }
 

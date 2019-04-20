@@ -1,0 +1,36 @@
+#container{
+    display: flex;
+    justify-content: space-between;
+
+    #tabsAndP{
+        #tab{
+            font-size: 25px;
+        }
+        #tab:hover{
+            cursor: pointer;
+        }
+        p {
+            font-size: 12px;
+            padding-left: 5px;
+        }
+    }
+    #menuOptions{
+        .option {
+            font-size: 15px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .option:hover{
+            cursor: pointer;
+            color: blue;
+        }
+        #postAJob{
+            background-color:#ff4081;
+            border-radius: 25px;
+            color:white;
+        }
+        #iconicButton{
+            border: none;
+        }
+    }
+}

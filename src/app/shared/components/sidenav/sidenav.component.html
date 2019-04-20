@@ -1,0 +1,15 @@
+<mat-nav-list>
+    <h2 id="header">justjoin.it</h2>
+    <hr>
+    <app-sidenav-content (close)="onSidenavClose()" fxHide.lt-md></app-sidenav-content>
+    <app-sidenav-content-sm (close)="onSidenavClose()" fxHide.gt-sm></app-sidenav-content-sm>
+    <hr>
+    <a mat-list-item (click)="onSidenavClose()">
+            <mat-icon>eject</mat-icon>
+            <span class="nav-caption">Login</span>
+    </a>
+    <a mat-list-item (click)="onSidenavClose()">
+        <mat-icon>input</mat-icon>
+        <span class="nav-caption">Signup</span>
+    </a>
+</mat-nav-list>

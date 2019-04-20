@@ -1,0 +1,16 @@
+$imageColor: grey;
+$paddingRight: 7px;
+
+#container{
+    display: flex;
+    justify-content: center;
+    
+    #leftControllImage{
+        color: $imageColor;
+        padding-right:$paddingRight;
+    }
+    #rightControllImage{
+        color: $imageColor;
+        padding-left:$paddingRight;
+    }
+}
