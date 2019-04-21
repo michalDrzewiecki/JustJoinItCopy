@@ -1,7 +1,15 @@
-<div class="container" fxLayout="column">
+<div class="container" fxLayout="column" >
     <app-offer
+        fxHide.lt-md
         *ngFor="let offer of offers"
         [offer] = "offer"
         class="myOffer">
     </app-offer>
+
+    <app-offer-sm
+        fxHide.gt-sm
+        *ngFor="let offer of offers"
+        [offer] = "offer"
+        class="myOffer">
+    </app-offer-sm>
 </div>

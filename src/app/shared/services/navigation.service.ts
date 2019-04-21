@@ -28,7 +28,6 @@ export class NavigationService {
             } 
         }
     }
-
     getTechnologies(mainTechnologies: string[], hiddenTechnologies: string[]):void{
         for(let technology in Technology){
             if(isNaN(Number(technology))){

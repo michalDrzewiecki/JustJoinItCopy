@@ -1,0 +1,32 @@
+@import '../../../../../styles/variables';
+
+#container{
+    min-height: $filtrationHeightForSM;
+    background-color: $globalBackgroundColor;
+
+    .myColumn{
+        width: 100%;
+        min-height: 100%;
+        display: flex;
+
+        .mySelect{
+            width:100%;
+            height: 75%;
+            align-self: center;
+            background-color: $buttonBackgroundColor;
+            color: $buttonFontColor;
+            padding-left: 15px;
+            border: none;
+            font-size: 20px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        .mySelect:focus{
+            outline: 0;
+        }
+        select {
+            -webkit-appearance: none;
+        }
+    }
+}
+

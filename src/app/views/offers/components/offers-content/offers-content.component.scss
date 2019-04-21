@@ -1,13 +1,14 @@
-.container{
-    min-height: 75vh;
+@import '../../../../../styles/variables';
+
+#container{
     width: 100%;
-    background-color:#F5F5F5;
+    background-color: $globalBackgroundColor;
+    .myColumn{
+        width: 100%;
+        min-height: $contentHeightForNORM;
+    }
+    .heightForSM{
+        min-height: $contentHeightForSM; 
+    }   
 }
-.myColumn{
-    min-height: 75vh;
-    width: 100%;
-}
-.myColumnForSm{
-    min-height: 81vh;
-    width: 100%;
-}
+

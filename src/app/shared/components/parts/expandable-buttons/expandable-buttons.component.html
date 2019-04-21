@@ -1,0 +1,33 @@
+<div id="container">
+    <mat-menu #salary>
+        <div id="salaryMenu" mat-menu-item fxLayout="column">
+            <span>Choose min salary</span>
+            <mat-slider 
+                thumbLabel
+                [displayWith]="formatLabel"
+                min="0"
+                step="500"
+                max="50000"
+                (input)="onSliderSalaryChange($event)">
+            </mat-slider>
+        </div>
+    </mat-menu>
+    <button class="expandableButton" mat-stroked-button [matMenuTriggerFor]="salary">
+        <mat-icon class="leftControllImage">attach_money</mat-icon>
+        <span #salaryText>Salary</span>
+        <mat-icon class="rightControllImage">keyboard_arrow_down</mat-icon>
+    </button>
+
+    <mat-menu #expLevel>
+        <button *ngFor="let elem of levels" 
+            mat-menu-item
+            (click)="onExperienceLevelChoose($event)"
+            id="{{elem}}">{{ elem }}
+        </button>
+    </mat-menu>
+    <button class="expandableButton" mat-stroked-button [matMenuTriggerFor]="expLevel">
+        <mat-icon class="leftControllImage">trending_up</mat-icon>
+        <span #experienceText>Exp.level</span>
+        <mat-icon class="rightControllImage">keyboard_arrow_down</mat-icon>
+    </button>               
+</div>

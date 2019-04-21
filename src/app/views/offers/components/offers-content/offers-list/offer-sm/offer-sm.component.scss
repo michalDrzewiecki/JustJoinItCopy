@@ -1,0 +1,36 @@
+@import '../../../../../../../styles/overrides';
+
+.container{
+    @extend %offerButtonContainer;
+    
+    #frame{
+        @extend %offerFrame;
+    }
+    #logo{
+        @extend %offerLogo;
+    }
+    #rows{
+        @extend %offerRows;
+        .myRow{
+            @extend %offerMyRow;
+
+            #position{
+                @extend %offerPosition;
+            }
+            #date{
+                @extend %offerDate;
+            }
+            #money{
+                @extend %offerMoney;
+            }
+            .tag{
+                @extend %offerTag;
+            }
+            .tagBackground{
+                @extend %offerTagBackground;
+            }
+        }
+
+    }
+}
+

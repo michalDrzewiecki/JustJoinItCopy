@@ -1,16 +1,13 @@
-$imageColor: grey;
-$paddingRight: 7px;
+@import '../../../../../styles/overrides';
 
 #container{
     display: flex;
     justify-content: center;
     
     #leftControllImage{
-        color: $imageColor;
-        padding-right:$paddingRight;
+        @extend %leftControllImage;
     }
     #rightControllImage{
-        color: $imageColor;
-        padding-left:$paddingRight;
+        @extend %rightControllImage;
     }
 }

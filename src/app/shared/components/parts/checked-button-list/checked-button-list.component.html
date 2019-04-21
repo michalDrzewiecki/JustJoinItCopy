@@ -1,0 +1,26 @@
+<div id="container" fxLayout="row">
+    <div #parent fxLayout="row">
+        <button *ngFor="let element of mainArray" 
+            class = "filterButton"
+            mat-stroked-button
+            (click)="onMainButtonClicked($event)"
+            id={{element}}>{{ element }}
+        </button>
+        <button 
+            #hiddenElement
+            class="filterButton" 
+            mat-stroked-button
+            (click)="onMainButtonClicked($event)">{{ hiddenElementName }}
+        </button> 
+    </div>
+    <mat-menu #hiddenMenu id="hiddenMenu">
+        <button *ngFor="let element of hiddenArray"
+            mat-menu-item
+            (click)="onHiddenButtonClicked($event)"
+            id="{{element}}">{{ element }}
+        </button>
+    </mat-menu>
+    <button class="iconicButton" [matMenuTriggerFor]="hiddenMenu">
+        <mat-icon>more_horiz</mat-icon>
+    </button>
+</div>

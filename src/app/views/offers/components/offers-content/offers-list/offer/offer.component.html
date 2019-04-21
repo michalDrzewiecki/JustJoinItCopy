@@ -5,37 +5,39 @@
         <h3>{{offer.companyLogo}}</h3>
     </div>
     <div id="rows">
-        <div class="myRow" fxLayout.gt-sm="row">
-            <div ngClass.gt-sm="position" ngClass.lt-md="positionForSM">
+        <div class="myRow" fxLayout="row">
+            <div id="position">
                 <p >{{ offer.position }}</p>
             </div>
-            <div ngClass.gt-sm="subContainer" ngClass.lt-md="subContainerForSM" fxLayout.lt-md="row">
+            <div fxLayout="row">
                 <div id="money">
                     <p>{{ getMoney() }}</p>
                 </div>
-                <div class="date">
+                <div id="date">
                     <p class="tag" [ngClass]="{tagBackground: getDate()=='New'}">{{ getDate() }}</p>
                 </div>
             </div>
         </div>
-        <div class="myRow" fxLayout="row" fxHide.lt-md>
-            <div id="company" fxLayout="row">
-                <div class="icon">
-                    <mat-icon>domain</mat-icon>
+        <div class="myRow" fxLayout="row">
+            <div fxLayout="row">
+                <div id="company" fxLayout="row">
+                    <div class="icon">
+                        <mat-icon>domain</mat-icon>
+                    </div>
+                    <div class="label">
+                        <p>{{ offer.companyName }}</p>
+                    </div>
                 </div>
-                <div class="label">
-                    <p>{{ offer.companyName }}</p>
+                <div id="address" fxLayout="row">
+                    <div class="icon">
+                        <mat-icon>place</mat-icon>    
+                    </div>
+                    <div class="label">
+                        <p>{{ getAddress() }}</p>
+                    </div>
                 </div>
             </div>
-            <div id="address" fxLayout="row">
-                <div class="icon">
-                    <mat-icon>place</mat-icon>    
-                </div>
-                <div class="label">
-                    <p>{{ getAddress() }}</p>
-                </div>
-            </div>
-            <div class="subContainer" fxLayout="row">
+            <div fxLayout="row">
                 <div id="tags" fxLayout="row">
                     <p 
                         class="tag"

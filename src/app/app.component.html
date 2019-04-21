@@ -15,14 +15,10 @@
                 </app-navigation-menu>
             </div>
             <div id="filtration" >
-                <div [ngClass.gt-sm]="'filtrationForNORM'" [ngClass.lt-md]="'filtrationForSM'">
-                    <app-filter id="filter"></app-filter>
-                </div> 
+                <app-filter id="filter"></app-filter>
             </div>
             <div id="content" >
-                <div [ngClass.gt-sm]="'contentForNORM'" [ngClass.lt-md]="'contentForSM'">
-                    <router-outlet></router-outlet>
-                </div>
+                <router-outlet></router-outlet>
             </div>           
         </div>
     </mat-sidenav-content>

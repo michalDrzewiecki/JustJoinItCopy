@@ -1,12 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Offer } from '../../../../offers.interfaces'
+import { City } from '../../../../../../shared/shared.enums'
 
 @Component({
-  selector: 'app-offer',
-  templateUrl: './offer.component.html',
-  styleUrls: ['./offer.component.scss'],
+  selector: 'app-offer-sm',
+  templateUrl: './offer-sm.component.html',
+  styleUrls: ['./offer-sm.component.scss'],
 })
-export class OfferComponent implements OnInit{
+export class OfferSmComponent implements OnInit{
   @Input() offer: Offer;
   private tag: string;
   constructor() {}
@@ -29,9 +30,5 @@ export class OfferComponent implements OnInit{
     else{
       return daysDifference + "d ago";
     }
-  }
-
-  getAddress():string{
-    return "ul. " + this.offer.companyAddress.streetName + " " + this.offer.companyAddress.buildingNumber + ", " + this.offer.companyAddress.city;
   }
 }

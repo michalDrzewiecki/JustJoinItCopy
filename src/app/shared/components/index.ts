@@ -9,6 +9,7 @@ import { SidenavContentComponent } from './sidenav/sidenav-content/sidenav-conte
 import { SidenavContentSmComponent } from './sidenav/sidenav-content-sm/sidenav-content-sm.component';
 import { ThemeTogglerComponent } from './parts/theme-toggler/theme-toggler.component';
 import { CheckedButtonListComponent } from './parts/checked-button-list/checked-button-list.component';
+import { ExpandableButtonsComponent } from './parts/expandable-buttons/expandable-buttons.component';
 
 
 export const SharedComponents = [
@@ -22,7 +23,8 @@ export const SharedComponents = [
   SidenavContentComponent,
   SidenavContentSmComponent,
   ThemeTogglerComponent,
-  CheckedButtonListComponent
+  CheckedButtonListComponent,
+  ExpandableButtonsComponent
 ];
 
 export {
@@ -36,5 +38,6 @@ export {
   SidenavContentComponent,
   SidenavContentSmComponent,
   ThemeTogglerComponent,
-  CheckedButtonListComponent
+  CheckedButtonListComponent,
+  ExpandableButtonsComponent
 };

@@ -6,24 +6,4 @@ mat-sidenav-container, mat-sidenav-content, mat-sidenav {
 mat-sidenav {
     width: $sidenavWidth;
 }
-#container{
-    #navigation{
-        min-height: $navigationHeight;
-    }
-    #filtration{
-        .filtrationForNORM{
-            min-height: $filtrationHeightForNORM;
-        }
-        .filtrationForSM{
-            min-height: $filtrationHeightForSM;
-        }
-    }
-    #content{
-        .contentForNORM{
-            min-height: $contentHeightForNORM;
-        }
-        .contentForSM{
-            min-height: $contentHeightForSM;
-        }
-    }   
-}
+

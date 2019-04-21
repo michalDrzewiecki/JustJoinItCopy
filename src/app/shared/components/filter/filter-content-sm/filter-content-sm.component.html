@@ -1,0 +1,22 @@
+<div id="container" fxLayout="row">
+    <div class="myColumn">
+        <select class="mySelect">
+            <option selected disabled hidden></option>
+            <option 
+                *ngFor="let city of mainCities.concat(hiddenCities)" 
+                [value]="city"
+                >{{ city }}
+            </option>
+        </select>
+    </div>
+    <div class="myColumn">
+        <select class="mySelect">
+            <option selected disabled hidden></option>
+            <option 
+                *ngFor="let technology of mainTechnologies.concat(hiddenTechnologies)" 
+                [value]="technology"
+                >{{ technology }}
+            </option>
+        </select>
+    </div>      
+</div>

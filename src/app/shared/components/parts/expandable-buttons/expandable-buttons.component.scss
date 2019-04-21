@@ -1,0 +1,29 @@
+@import '../../../../../styles/overrides';
+@import '../../../../../styles/variables';
+
+#container{
+    .expandableButton{
+        padding-left: 10px;
+        padding-right: 10px;
+        color: $buttonFontColor;
+        background-color: $buttonBackgroundColor;
+        border-radius: 25px;
+        margin-left: 7px;
+    }
+    .rightControllImage{
+        @extend %rightControllImage;
+    }
+    .leftControllImage{
+        @extend %leftControllImage;
+    }
+}
+.mat-menu-item{
+    display: flex;
+    justify-content: center;
+    height: 35px;
+    color: $buttonFontColor;
+    background-color: $buttonBackgroundColor;
+}
+#salaryMenu{
+    min-height: 100px;
+}

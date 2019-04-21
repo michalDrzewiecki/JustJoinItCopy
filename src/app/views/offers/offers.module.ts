@@ -4,14 +4,14 @@ import { MaterialModule } from '../../material/material.module';
 import { OffersServices } from './services';
 import { AppRoutingModule } from '../../app-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
-
-// in this module we import every angular material module
 @NgModule({
   imports: [
     MaterialModule,
     AppRoutingModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    LeafletModule.forRoot()
   ],
   declarations: [
     ...OffersComponents

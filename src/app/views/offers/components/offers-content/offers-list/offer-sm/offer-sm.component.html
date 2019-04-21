@@ -1,0 +1,22 @@
+<div class="container" fxLayout="row" [routerLink]="[tag]">
+    <div id="frame">
+    </div>
+    <div id="logo">
+        <h3>{{offer.companyLogo}}</h3>
+    </div>
+    <div id="rows">
+        <div class="myRow" fxLayout="row">
+            <div id="position">
+                <p >{{ offer.position }}</p>
+            </div>
+        </div>
+        <div class="myRow" fxLayout="row">
+            <div id="money">
+                <p>{{ getMoney() }}</p>
+            </div>
+            <div id="date">
+                <p class="tag" [ngClass]="{tagBackground: getDate()=='New'}">{{ getDate() }}</p>
+            </div>
+        </div>
+    </div>
+</div>

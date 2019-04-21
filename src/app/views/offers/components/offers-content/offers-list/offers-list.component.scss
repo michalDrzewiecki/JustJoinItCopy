@@ -3,12 +3,13 @@
     width: 100%;
     display: flex;
     overflow-y: auto;
-    height: 1px;
+    height: 1px;   
+    
+    .myOffer{
+        align-self: center;
+        width: 98%;
+        max-height: 80px;
+        margin-bottom: 10px;
+    } 
+}
 
-}
-.myOffer{
-    align-self: center;
-    width: 98%;
-    max-height: 80px;
-    margin-bottom: 10px;
-}

@@ -1,0 +1,24 @@
+<div id="container" fxLayout="column" >
+    <div class="myRow" fxLayout="row">
+        <div class="cities">
+            <app-checked-button-list 
+                [mainArray]="mainCities" 
+                [hiddenArray]="hiddenCities" >
+            </app-checked-button-list>
+        </div>
+        <div id="dayNightOption">
+            <app-theme-toggler></app-theme-toggler>
+        </div>
+    </div>
+    <div class="myRow" fxLayout="row">
+        <div class="technologies">
+            <app-checked-button-list 
+                [mainArray]="mainTechnologies" 
+                [hiddenArray]="hiddenTechnologies">
+            </app-checked-button-list>
+        </div>  
+        <div>
+            <app-expandable-buttons></app-expandable-buttons>
+        </div>
+    </div>   
+</div>

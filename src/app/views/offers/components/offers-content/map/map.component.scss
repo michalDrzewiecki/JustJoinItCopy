@@ -1,0 +1,12 @@
+@import '../../../../../../styles/variables';
+
+#container{
+    background-color: $globalBackgroundColor;
+    min-height: $contentHeightForNORM;
+    height: 1px;
+    overflow-y: auto;
+}
+.map{
+    height: $contentHeightForNORM;
+    width: 100%;
+}
