@@ -8,7 +8,8 @@ export const AppRoutes = {
   OFFERS: 'offers',
   AUTH: 'auth',
   LOGIN: 'login',
-  BRANDS: 'brands'
+  BRANDS: 'brands',
+  DEFAULT_PARAM: 'all'
 };
 
 export const AppRouterLinks = {

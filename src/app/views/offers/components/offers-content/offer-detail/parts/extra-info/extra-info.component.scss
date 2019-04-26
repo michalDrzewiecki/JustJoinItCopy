@@ -1,0 +1,16 @@
+#container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    #frame{
+        width: 95%;
+        display: flex;
+        justify-content: space-around;
+        margin-top: -50px;
+
+        app-info-box{
+            width: 18%;
+        }
+    }
+
+}

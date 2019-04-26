@@ -1,0 +1,95 @@
+@import '../../../../../../../../styles/overrides';
+
+$applyButtonColor: #448AFF;
+
+#container{
+    min-height: 250px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    #frame{
+        width: 95%;
+        min-height: 100%;
+        display: flex;
+        
+        #functionalRow{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            .functionalButton{
+                display: flex;
+                justify-content: center;
+                height: 30px;
+                width: 30px;
+                margin: 10px;
+                background-color: rgba(0,0,0,0.3);
+                color: white;
+                border: none;
+                border-radius: 5px;
+                filter: alpha(opacity=50);
+                &:hover{
+                    background-color: rgba(0,0,0,0.5);
+                    cursor: pointer;
+                }
+                &:focus{
+                    outline: 0;
+                }
+            }
+        }
+        #companyInfoRow{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-left: 30px;
+            margin-right: 20px;
+            #responsivePart{
+                display: flex;
+                align-items: center;
+                #logo{
+                    border-radius: 50px;
+                    border: none;
+                    background-color: white;
+                    height: 100px;
+                    width: 100px;
+                    color: black;
+                    &:focus{
+                        outline: 0;
+                    }
+                }
+                #infos{
+                    color: white;
+                    font-size: 20px;
+                    margin-left: 20px;
+                    #position{
+                        font-size: 30px;
+                    }
+                }
+            }
+            #apply{
+                display: flex;
+                justify-content: center;
+                height: 38px;
+                width : 100px;
+                border: none;
+                border-radius: 25px;
+                background-color: white;
+                color: $applyButtonColor;
+                &:hover{
+                    cursor: pointer;
+                }
+                &:focus{
+                    outline: 0;
+                }
+
+                mat-icon{
+                    @extend %leftControllImage;
+                    color: $applyButtonColor;
+                    transform: scale(0.8);
+                }
+                #label{
+                    align-self: center;
+                }
+            }
+        }   
+    }
+}

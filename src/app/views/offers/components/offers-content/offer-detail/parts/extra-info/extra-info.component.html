@@ -1,0 +1,34 @@
+<div id="container" >
+    <div id="frame" fxLayout="row">
+        <app-info-box 
+            [category]="'Company name'"
+            [value]="offer.companyName" 
+            [icon]="'domain'"
+            [color]="'#FF5252'">
+        </app-info-box>
+        <app-info-box 
+            [category]="'Company size'"
+            [value]="offer.companySize" 
+            [icon]="'group'"
+            [color]="'#fb8c00'">
+        </app-info-box>
+        <app-info-box 
+            [category]="'EMP.type'"
+            [value]="getAgreementType()" 
+            [icon]="'description'"
+            [color]="'#ab47bc'">
+        </app-info-box>
+        <app-info-box 
+            [category]="'EXP.lvl'"
+            [value]="getExperienceLevel()" 
+            [icon]="'trending_up'"
+            [color]="'#66BB6A'">
+        </app-info-box>
+        <app-info-box 
+            [category]="'Added'"
+            [value]="offersService.getDate(offer)" 
+            [icon]="'timelapse'"
+            [color]="'#448AFF'">
+        </app-info-box>
+    </div>
+</div>

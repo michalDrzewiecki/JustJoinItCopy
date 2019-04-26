@@ -1,0 +1,30 @@
+@import '../../../../../../../../styles/variables';
+
+#container{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    min-height: 150px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    #frame{
+        border-radius: 5px;
+        background-color: $navigationBackgroundColor;
+        width: 95%;
+        min-height: 100%;
+        display: flex;
+        p{
+            font-size: 25px;
+            margin-left: 15px;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+        hr {
+            border: 0;
+            width: 100%;               
+            background-color: $globalBackgroundColor;
+            height: 4px;
+        }
+
+    }
+}

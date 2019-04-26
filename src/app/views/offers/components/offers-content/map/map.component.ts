@@ -12,6 +12,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class MapComponent implements OnInit{
   @ViewChild('map') map;
+  appRouterUrls;
   options;
   layers = [];
   offers: Offer[] = [];
@@ -19,6 +20,7 @@ export class MapComponent implements OnInit{
   constructor(private offersService: OffersService, private router: Router, private zone: NgZone, private route: ActivatedRoute) {}
   
   ngOnInit(){
+    this.appRouterUrls = this.offersService.getAppRouterUrls();
     this.offers = this.offersService.getOffers();
     for (let offer of this.offers){
       this.changeAddressIntoCoordinates(offer);
@@ -51,8 +53,8 @@ export class MapComponent implements OnInit{
 
   createMarker(coordinates, offer: Offer){
     let newMarker = circleMarker([coordinates.y, coordinates.x], {
-      color: 'red',
-      fillColor: '#f03',
+      color: offer.color,
+      fillColor: offer.color,
       fillOpacity: 0.4,
       radius: 20,
     });
@@ -75,13 +77,9 @@ export class MapComponent implements OnInit{
       this.closePopup();
     })
     newMarker.on('click', e=>{
-      console.log(offer.routingTag);
-      this.zone.run(()=>{this.router.navigate([offer.routingTag], {relativeTo: this.route})});
+      let path: string = '/' + this.appRouterUrls.OFFERS + "/" + offer.routingTag;  
+      this.zone.run(()=>{this.router.navigateByUrl(path)});
     });
     this.layers.push(newMarker);
   }
-
-  
-  
-
 }

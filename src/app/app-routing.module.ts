@@ -5,6 +5,8 @@ import { AuthLoginComponent } from './views/auth/components';
 import { OffersContentComponent, OfferDetailComponent, OffersListComponent} from './views/offers/components';
 import { BrandsComponent } from './views/brands/components';
 
+const route = [{path: '', pathMatch: 'full', component: OffersListComponent}];
+
 const routes: Routes = [
   { path: '', redirectTo: AppRouterUrls.OFFERS, pathMatch: 'full' },
   { 
@@ -12,8 +14,12 @@ const routes: Routes = [
     children:[
       {path: '', pathMatch: 'full', component: OffersListComponent},
       {path: ':id', component: OfferDetailComponent}
-    ]
-  },
+      
+    ]},
+  { path: ':city', component: OffersContentComponent, children: route},
+  { path: ':city/:technology', component: OffersContentComponent, children: route},
+  { path: ':city/:technology/:experience', component: OffersContentComponent, children: route},
+  { path: ':city/:technology/:experience/:salary', component: OffersContentComponent, children: route},
   { path: AppRoutes.BRANDS, component: BrandsComponent },
   {
     path: AppRoutes.AUTH,

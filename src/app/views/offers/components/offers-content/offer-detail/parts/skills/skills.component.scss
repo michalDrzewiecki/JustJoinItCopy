@@ -1,0 +1,55 @@
+@import '../../../../../../../../styles/variables';
+
+#container{
+    min-height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    #frame{
+        border-radius: 5px;
+        background-color: $navigationBackgroundColor;
+        width: 95%;
+        min-height: 100%;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+
+        .level{
+            min-width: 100px;
+            margin-left: 20px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            .levelButtonGroup{
+                width: 100%;
+                .levelButton{
+                    border-radius: 50%;
+                    border: none;
+                    background-color: #c7ced6;
+                    height: 10px;
+                    width: 3px;
+                    margin-right: 10px;
+                    &:focus{
+                        outline: 0;
+                    }
+                }
+                .levelButtonChecked{
+                    background-color: #ff4081;
+                }
+            }
+            .technology{
+                margin-top: 10px;
+                margin-bottom: 5px;
+                font-size: 20px;
+            }
+            .stringLevel{
+                font-size: 15px;
+                color: grey;
+
+            }
+        }
+
+        
+
+        
+    }
+}

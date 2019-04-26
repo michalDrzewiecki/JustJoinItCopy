@@ -19,12 +19,12 @@
         border: none;
         margin-left: 7px;
         background-color: transparent;
-    }
-    .iconicButton:hover{
-        cursor: pointer;
-    }
-    .iconicButton:focus{
-        outline: 0;
+        &:hover{
+            cursor: pointer;
+        }
+        &:focus{
+            outline: 0;
+        }
     }
 }
 .mat-menu-item{

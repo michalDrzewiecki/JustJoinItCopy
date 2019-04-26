@@ -1,5 +1,7 @@
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { NavigationService } from 'src/app/shared/services';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-expandable-buttons',
@@ -9,9 +11,12 @@ import { NavigationService } from 'src/app/shared/services';
 export class ExpandableButtonsComponent implements OnInit{
   @ViewChild('salaryText') salaryText: ElementRef;
   @ViewChild('experienceText') experienceText: ElementRef;
+  subscription: Subscription;
   levels: string[];
   
-  constructor(private navigationService: NavigationService) {}
+  constructor(private navigationService: NavigationService, 
+                private route: ActivatedRoute,
+                private router: Router) {}
 
   ngOnInit(){
     this.levels = this.navigationService.getExperienceLevelArray();
@@ -29,7 +34,13 @@ export class ExpandableButtonsComponent implements OnInit{
   }
   
   onExperienceLevelChoose(event: any):void{
-    let newValue: string = event.currentTarget.id;
+    let newValue: string = "";
+    if(event.currentTarget.id == "all"){
+      newValue = "Exp.level"
+    }
+    else{
+      newValue = event.currentTarget.id;
+    }
     this.experienceText.nativeElement.innerHTML = newValue;
   }
 }

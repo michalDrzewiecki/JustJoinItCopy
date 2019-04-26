@@ -3,3 +3,11 @@ export enum Agreement{
     Permanent,
     Temporary
 }
+
+export enum MyColor{
+    green,
+    blue, 
+    red,
+    orange,
+    purple
+}

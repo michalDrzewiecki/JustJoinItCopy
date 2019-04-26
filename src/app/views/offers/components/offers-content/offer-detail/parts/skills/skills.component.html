@@ -1,0 +1,18 @@
+<div id="container">
+    <div id="frame">
+        <div class="level" *ngFor="let level of offer.requiredSkills">
+            <div class="levelButtonGroup" fxLayout="row">
+                <button *ngFor="let num of numbers; let i=index"
+                    [ngClass]="{levelButtonChecked: (level.level) > i}"
+                    class="levelButton">
+                </button>
+            </div>
+            <div class="technology">
+                {{ getTechnology(level) }}
+            </div>
+            <div class="stringLevel">
+                {{ getLevel(level) }}
+            </div>   
+        </div>
+    </div>
+</div>

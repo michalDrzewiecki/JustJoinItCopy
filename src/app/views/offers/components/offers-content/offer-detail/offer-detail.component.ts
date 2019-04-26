@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Offer } from '../../../offers.interfaces'
 import { OffersService } from 'src/app/views/offers/services';
-import { ActivatedRoute, Router, Params } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-offer-detail',
@@ -14,8 +14,7 @@ export class OfferDetailComponent implements OnInit {
   private error:boolean = false;
 
   constructor(private offersService: OffersService,
-              private route: ActivatedRoute,
-              private router: Router) {}
+              private route: ActivatedRoute) {}
 
   ngOnInit(){
     this.route.params.subscribe(

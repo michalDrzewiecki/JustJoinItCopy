@@ -5,9 +5,9 @@
     #tabsAndP{
         #tab{
             font-size: 25px;
-        }
-        #tab:hover{
-            cursor: pointer;
+            &:hover{
+                cursor: pointer;
+            }
         }
         p {
             font-size: 12px;
@@ -19,10 +19,10 @@
             font-size: 15px;
             margin-left: 20px;
             margin-right: 20px;
-        }
-        .option:hover{
-            cursor: pointer;
-            color: blue;
+            &:hover{
+                cursor: pointer;
+                color: blue;
+            }
         }
         #postAJob{
             background-color:#ff4081;

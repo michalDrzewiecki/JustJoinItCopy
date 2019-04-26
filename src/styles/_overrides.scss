@@ -19,8 +19,8 @@
     display: flex;
     border-radius: 10px;
     background-color: $buttonBackgroundColor;
-    min-height: 70px;
-    max-height: 70px;
+    min-height: 85px;
+    max-height: 85px;
     border: none;
 }
 %offerButtonContainer:hover{
@@ -31,8 +31,7 @@
 }
 %offerFrame{
     width: 5px;
-    background-color: green;
-    border-radius: 10px;
+    border-radius: 10px 0px 0px 10px;
 }
 %offerLogo{
     width: 80px;

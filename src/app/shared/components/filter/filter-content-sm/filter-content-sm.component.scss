@@ -20,9 +20,9 @@
             font-size: 20px;
             margin: 5px;
             border-radius: 5px;
-        }
-        .mySelect:focus{
-            outline: 0;
+            &:focus{
+                outline: 0;
+            }
         }
         select {
             -webkit-appearance: none;

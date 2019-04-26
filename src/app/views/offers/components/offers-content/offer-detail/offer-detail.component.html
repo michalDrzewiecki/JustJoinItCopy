@@ -1,6 +1,16 @@
-<div class="container" *ngIf="!error">
-    <h2>FIRMA: {{offer.companyName}}</h2>
-    <h4>ROZMIAR FIRMY: {{offer.companySize}}</h4>
-    <h4>OPIS: {{offer.description}}</h4>
+<div id="container" *ngIf="!error">
+    <app-company-info></app-company-info>
+    <app-extra-info></app-extra-info>
+    <app-sheet [title]="'Required skills'">
+        <app-skills></app-skills>
+    </app-sheet>
+    <app-sheet [title]="'Description'">
+        <div id="description">
+            {{offer.description}};
+        </div>  
+    </app-sheet>
+    <app-sheet [title]="'Apply'">
+
+    </app-sheet>
 </div>
 <div class="error"*ngIf="error">sorry we Could not find this offer</div>

@@ -1,0 +1,34 @@
+<div id="container">
+    <div id="frame" #frame fxLayout="column">
+        <div id="functionalRow" fxLayout="row">
+            <button id="back" class="functionalButton" [routerLink]="appRouterUrls.OFFERS">
+                <mat-icon>navigate_before</mat-icon>
+            </button>
+            <button id="media" class="functionalButton">
+                <mat-icon>share</mat-icon>
+            </button>
+        </div>
+        <div id="companyInfoRow" fxLayout="row">
+            <div id="responsivePart" fxLayout="row">
+                <button id="logo">{{ offer.companyLogo }}</button>
+                <div id="infos">
+                    {{ getMoney() }}<br>   
+                    <b id="position">{{ offer.position }}</b><br>
+                    {{ getAddress() }}
+                </div>
+            </div>
+            <div>
+                <button id="apply" fxHide.lt-md>
+                    <mat-icon>email</mat-icon>
+                    <div id="label">
+                        Apply
+                    </div>
+                </button>
+            </div>
+        </div>
+        
+        
+        
+
+    </div>
+</div>

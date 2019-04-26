@@ -1,5 +1,5 @@
-<div class="container" fxLayout="row" [routerLink]="[tag]">
-    <div id="frame">
+<div class="container" fxLayout="row" [routerLink]="[appRouterUrls.OFFERS, tag]">
+    <div id="frame" #frame>
     </div>
     <div id="logo">
         <h3>{{offer.companyLogo}}</h3>
@@ -15,7 +15,7 @@
                 <p>{{ getMoney() }}</p>
             </div>
             <div id="date">
-                <p class="tag" [ngClass]="{tagBackground: getDate()=='New'}">{{ getDate() }}</p>
+                <p class="tag" [ngClass]="{tagBackground: offersService.getDate(offer)=='New'}">{{ offersService.getDate(offer) }}</p>
             </div>
         </div>
     </div>
