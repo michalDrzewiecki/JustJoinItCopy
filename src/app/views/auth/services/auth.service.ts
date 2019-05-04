@@ -1,10 +1,15 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
+import { NavigationService } from 'src/app/shared/services';
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class AuthService {
+export class AuthService{
+  constructor(private navigationService: NavigationService) {}
 
-  constructor() {}
+  getAppRouterUrls(){
+    return this.navigationService.getAppRouterUrls();
+  }
+
 }

@@ -8,14 +8,15 @@ export const AppRoutes = {
   OFFERS: 'offers',
   AUTH: 'auth',
   LOGIN: 'login',
+  REGISTER: 'register',
   BRANDS: 'brands',
-  DEFAULT_PARAM: 'all'
 };
 
 export const AppRouterLinks = {
   ERROR: [AppRoutes.ERROR],
   OFFERS: [AppRoutes.OFFERS],
   LOGIN: [AppRoutes.AUTH, AppRoutes.LOGIN],
+  REGISTER: [AppRoutes.AUTH, AppRoutes.REGISTER],
   BRANDS: [AppRoutes.BRANDS],
 };
 
@@ -23,5 +24,6 @@ export const AppRouterUrls = {
   ERROR: `/${AppRoutes.ERROR}`,
   OFFERS: `/${AppRoutes.OFFERS}`,
   LOGIN: `/${AppRoutes.AUTH}/${AppRoutes.LOGIN}`,
+  REGISTER: `/${AppRoutes.AUTH}/${AppRoutes.REGISTER}`,
   BRANDS: `/${AppRoutes.BRANDS}`
 };

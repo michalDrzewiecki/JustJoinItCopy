@@ -15,4 +15,8 @@ export class OffersListComponent implements OnInit {
   ngOnInit(){
     this.offers = this.offersService.getOffers();
   }
+
+  action(){
+    console.log("jestem")
+  }
 }

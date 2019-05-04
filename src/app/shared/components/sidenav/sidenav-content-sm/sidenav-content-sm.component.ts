@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { NavigationService } from 'src/app/shared/services';
 
+
 @Component({
   selector: 'app-sidenav-content-sm',
   templateUrl: './sidenav-content-sm.component.html',
@@ -16,7 +17,7 @@ export class SidenavContentSmComponent {
     this.appRouterUrls = this.navigationService.getAppRouterUrls();
   }
 
-  onSidenavClose(){
+  onSidenavClose(): void{
     this.close.emit();
   }
 }

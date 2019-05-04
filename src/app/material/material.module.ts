@@ -10,6 +10,9 @@ import {
   MatListModule,
   MatSlideToggleModule,
   MatMenuModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatCheckboxModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -28,6 +31,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatListModule,
     MatSlideToggleModule,
     MatMenuModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCheckboxModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -41,6 +47,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatListModule,
     MatSlideToggleModule,
     MatMenuModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCheckboxModule
   ]
 })
 export class MaterialModule { }

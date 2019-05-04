@@ -25,30 +25,21 @@
         }
 
         #myRow{
-            margin-top: 20px;
             width: 100%;
             display: flex;
-            justify-content: space-around; 
-            #remember{
-                font-size: 10px;
-            }
-            #loginButtonDiv{
-                #login{
+            justify-content: center; 
+            margin-top: 20px;
+            margin-bottom: 20px;
+            #registerButtonDiv{
+                width: 60%;
+                #register{
                     @extend %myThemeButton;
+                    width: 100%;
                 }
             }
         }
 
-        .myAnchor{
-            font-size: 12px;
-            color: blue;
-            text-decoration: none;
-            &:hover{
-                cursor: pointer;
-            }
-        }
-        #register{
-            margin-top: 20px;
-        }
     }
+    
+    
 }

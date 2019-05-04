@@ -19,7 +19,6 @@ export class OfferComponent implements OnInit{
     this.appRouterUrls = this.offersService.getAppRouterUrls();
     this.tag = this.offer.routingTag;
     this.renderer.setElementStyle(this.frame.nativeElement, 'backgroundColor', String(this.offer.color));
-
   }
 
   getMoney():string{
@@ -28,5 +27,17 @@ export class OfferComponent implements OnInit{
   
   getAddress():string{
     return "ul. " + this.offer.companyAddress.streetName + " " + this.offer.companyAddress.buildingNumber + ", " + this.offer.companyAddress.city;
+  }
+
+  onMouseOver():void{
+    this.offersService.onHoveredOfferChanged(this.offer);
+  }
+
+  onMouseLeave():void{
+    this.offersService.onHoveredOfferChanged(null);
+  }
+
+  onMouseClick():void{
+    this.onMouseLeave();
   }
 }

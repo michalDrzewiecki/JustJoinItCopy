@@ -4,8 +4,9 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 html, body {
-    height: $globalHeight;
-    width: 100vw;
-    margin: 0;
-  }
+  height: $globalHeight;
+  width: 100vw;
+  margin: 0;
+  font-family: 'Open sans', sans-serif;
+}
 

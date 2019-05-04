@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output, Input, OnInit } from '@angular/core';
 import { NavigationService } from 'src/app/shared/services';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidenav',
@@ -8,20 +9,20 @@ import { NavigationService } from 'src/app/shared/services';
 })
 export class SidenavComponent implements OnInit{
   @Output() sidenavClose = new EventEmitter<void>();
-  //@Output() sidenavForSMClose = new EventEmitter<void>();
   appRouterUrls;
   
-  constructor(private navigationService: NavigationService) {}
+  constructor(private navigationService: NavigationService, private router: Router) {}
 
   ngOnInit(){
     this.appRouterUrls = this.navigationService.getAppRouterUrls();
   }
+
+  onAuthClick(route: string): void{
+    this.onSidenavClose();
+    this.router.navigate([route]);
+  }
+
   onSidenavClose(){
     this.sidenavClose.emit();
-    //this.sidenavForSMClose.emit();
   }
-  /*isSMDevice():boolean{
-    return this.navigationService.getSMDevice();
-  }*/
-
 }

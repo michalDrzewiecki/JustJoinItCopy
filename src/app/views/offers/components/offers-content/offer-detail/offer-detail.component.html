@@ -1,5 +1,5 @@
 <div id="container" *ngIf="!error">
-    <app-company-info></app-company-info>
+    <app-company-info (apply)="apply()"></app-company-info>
     <app-extra-info></app-extra-info>
     <app-sheet [title]="'Required skills'">
         <app-skills></app-skills>
@@ -9,8 +9,8 @@
             {{offer.description}};
         </div>  
     </app-sheet>
-    <app-sheet [title]="'Apply'">
-
+    <app-sheet [title]="'Apply for the job'" id="applyForm">
+        <apply-form></apply-form>
     </app-sheet>
 </div>
 <div class="error"*ngIf="error">sorry we Could not find this offer</div>

@@ -27,4 +27,8 @@ export class OfferDetailComponent implements OnInit {
       }
     );
   }
+
+  apply(){
+    document.getElementById("applyForm").scrollIntoView();
+  }
 }

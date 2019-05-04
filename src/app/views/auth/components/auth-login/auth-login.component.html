@@ -1,1 +1,33 @@
-<p>login component</p>
+<div id="container">
+    <div id="frame" fxLayout="column">
+        <h2 id="main">
+            <a [routerLink]="appRouterUrls.OFFERS">justjoin.it</a>
+        </h2>
+        <div class="myInput" fxLayout="row">
+            <mat-icon class="leftControllImage">email</mat-icon>
+            <mat-form-field>
+                <input class="realInput" matInput placeholder="Email">
+            </mat-form-field>
+        </div>
+        <div class="myInput" fxLayout="row">
+            <mat-icon class="leftControllImage">enhanced_encryption</mat-icon>
+            <mat-form-field>
+                <input class="realInput" type="password" matInput placeholder="Password">
+            </mat-form-field>
+        </div>
+        <div id="myRow" fxLayout="row">
+            <div id="remember">
+                <mat-checkbox color="primary">Remember me</mat-checkbox>
+            </div>
+            <div id="loginButtonDiv">
+                <button id="login" mat-stroked-button>Login</button>
+            </div>
+        </div>
+        <div id="register">
+                <a class="myAnchor" [routerLink]="appRouterUrls.REGISTER">Register</a>
+            </div>
+        <div id="reminder">
+            <a class="myAnchor">Forgot password?</a>
+        </div>
+    </div>
+</div>

@@ -7,17 +7,17 @@
     </mat-sidenav>
     <mat-sidenav-content>
         <div id="container">
-            <div id="navigation">
+            <div id="navigation" #nav>
                 <app-navigation-menu 
                     id="nav" 
                     (sidenavToggle)="sidenav.toggle()"
                     (sidenavToggleForSM)="sidenavForSM.toggle()">
                 </app-navigation-menu>
             </div>
-            <div id="filtration" >
+            <div id="filtration" #filter>
                 <app-filter id="filter"></app-filter>
             </div>
-            <div id="content" >
+            <div id="content">
                 <router-outlet></router-outlet>
             </div>           
         </div>

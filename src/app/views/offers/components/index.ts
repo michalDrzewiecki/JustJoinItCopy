@@ -9,6 +9,7 @@ import { ExtraInfoComponent } from './offers-content/offer-detail/parts/extra-in
 import { InfoBoxComponent } from './offers-content/offer-detail/parts/info-box/info-box.component';
 import { SkillsComponent } from './offers-content/offer-detail/parts/skills/skills.component';
 import { SheetComponent } from './offers-content/offer-detail/parts/sheet/sheet.component';
+import { ApplyFormComponent } from './offers-content/offer-detail/parts/apply-form/apply-form.component';
 
 
 export const OffersComponents = [
@@ -22,7 +23,8 @@ export const OffersComponents = [
   ExtraInfoComponent,
   InfoBoxComponent,
   SkillsComponent,
-  SheetComponent
+  SheetComponent,
+  ApplyFormComponent
 ];
 
 export {
@@ -36,5 +38,6 @@ export {
   ExtraInfoComponent,
   InfoBoxComponent,
   SkillsComponent,
-  SheetComponent
+  SheetComponent,
+  ApplyFormComponent
 };

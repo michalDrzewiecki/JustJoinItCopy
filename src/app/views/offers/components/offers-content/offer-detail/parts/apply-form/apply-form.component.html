@@ -1,0 +1,54 @@
+<div id="container" fxLayout="column">
+    <div id="personalData" fxLayout="row" fxLayout.lt-md="column">
+        <div class="inputField" fxLayout="row">
+            <mat-icon class="leftControllImage">account_circle</mat-icon>
+            <mat-form-field>
+                <input class="personalInput" matInput placeholder="First & last name *">
+            </mat-form-field>
+        </div>
+        <div class="inputField" fxLayout="row">
+            <mat-icon class="leftControllImage">email</mat-icon>
+            <mat-form-field>
+                <input class="personalInput" matInput placeholder="Email address *">
+            </mat-form-field>
+        </div>
+    </div>
+    <div id="secondRow" fxLayout="row"  fxLayout.lt-md="column">
+        <div class="inputField" fxLayout="row">
+            <mat-icon class="leftControllImage">create</mat-icon>
+            <mat-form-field>
+                <textarea matInput placeholder="Introduce yourself (linkedin/github links)"></textarea>
+            </mat-form-field>
+        </div>
+        <div id="buttonDiv">
+            <button id="uploadButton">
+                <div id="content" fxLayout="column">
+                    <mat-icon>publish</mat-icon>
+                    Upload CV <br> (.pdf)
+                </div>
+            </button>
+        </div> 
+    </div>
+
+    <div id="myCheckbox" fxLayout="column">
+        <div>
+            <mat-checkbox color="primary">Processing data in future recruitment</mat-checkbox>
+        </div>
+        <div id="clause">
+            Wyrażam zgodę na przetwarzanie moich danych osobowych dla celów przyszłych rekrutacji.
+        </div>
+    </div>
+    <div id="finalRow" fxLayout="row">
+        <div id="myCaptcha" fxLayout="row">
+            <mat-checkbox color="primary">nie jestem robotem</mat-checkbox>
+        </div>
+        <div id="applyButtonDiv">
+            <button id="apply" mat-stroked-button>
+                Apply
+                <mat-icon>send</mat-icon>
+            </button>
+        </div>
+
+    </div>
+    
+</div>

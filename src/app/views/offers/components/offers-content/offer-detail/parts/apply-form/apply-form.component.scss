@@ -1,0 +1,100 @@
+@import '../../../../../../../../styles/overrides';
+@import '../../../../../../../../styles/variables';
+
+$rowMargin: 30px;
+$checkBoxSize: 25px;
+
+#container{
+    width: 90%;
+    display: flex;
+    margin-top: 30px;
+    margin-left: 30px;
+    .inputField{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        .leftControllImage{
+            @extend %leftControllImage;
+        }
+    }
+    #personalData{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        mat-form-field{
+            width: 80%;
+        }
+    }
+    #secondRow{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        mat-form-field{
+            width: 80%;
+        }
+        #buttonDiv{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            #uploadButton{
+                background-color: transparent;
+                border: 1px dashed;
+                width: 100%;
+                &:hover{
+                    background-color: lightgrey;
+                    cursor: pointer;
+                }
+                &:focus{
+                    outline: 0;
+                }
+                #content{
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                }
+            }
+        }   
+    }
+
+    #myCheckbox{
+        margin-top: $rowMargin;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        color: $buttonFontColor;
+        mat-checkbox{
+            color: black;
+        }
+        #clause{
+            font-size: 12px;
+        }
+    }
+
+    #finalRow{
+        margin-top: $rowMargin;
+        margin-bottom: $rowMargin;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        #myCaptcha{
+            display: flex;
+            padding: 15px;
+            align-items: center;
+            border: 1px solid grey;
+            background-color: $globalBackgroundColor;
+            border-radius: 5px;
+            width: 200px;
+            height: 70px;
+        }
+        #applyButtonDiv{
+           display: flex;
+           align-items: center;
+           margin-left: 10px;
+            #apply{
+                @extend %myThemeButton;
+                width: 150px;
+            }
+        }
+    }
+}

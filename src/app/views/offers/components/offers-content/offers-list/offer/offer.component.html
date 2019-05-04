@@ -1,8 +1,15 @@
-<div class="container" fxLayout="row" [routerLink]="[appRouterUrls.OFFERS, tag]">
+<div 
+    class="container" 
+    fxLayout="row" 
+    (click)="onMouseClick()"
+    [routerLink]="[appRouterUrls.OFFERS, tag]" 
+    (mouseenter)="onMouseOver()"
+    (mouseleave)="onMouseLeave()">
+
     <div id="frame" #frame>
     </div>
     <div id="logo">
-        <h3>{{offer.companyLogo}}</h3>
+        <img src={{offer.companyLogo}} alt="logo"/>
     </div>
     <div id="rows">
         <div class="myRow" fxLayout="row">

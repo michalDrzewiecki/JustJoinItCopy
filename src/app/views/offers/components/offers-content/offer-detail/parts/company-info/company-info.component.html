@@ -10,7 +10,9 @@
         </div>
         <div id="companyInfoRow" fxLayout="row">
             <div id="responsivePart" fxLayout="row">
-                <button id="logo">{{ offer.companyLogo }}</button>
+                <button id="logo">
+                    <img src={{offer.companyLogo}} alt="logo"/>
+                </button>
                 <div id="infos">
                     {{ getMoney() }}<br>   
                     <b id="position">{{ offer.position }}</b><br>
@@ -18,7 +20,7 @@
                 </div>
             </div>
             <div>
-                <button id="apply" fxHide.lt-md>
+                <button id="apply" fxHide.lt-md (click)="onApplyClick()">
                     <mat-icon>email</mat-icon>
                     <div id="label">
                         Apply

@@ -1,3 +1,5 @@
+@import '../../../../../styles/overrides';
+
 #container{
     display: flex;
     justify-content: space-between;
@@ -25,9 +27,7 @@
             }
         }
         #postAJob{
-            background-color:#ff4081;
-            border-radius: 25px;
-            color:white;
+            @extend %myThemeButton;
         }
         #iconicButton{
             border: none;

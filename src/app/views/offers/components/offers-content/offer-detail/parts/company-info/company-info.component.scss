@@ -55,6 +55,10 @@ $applyButtonColor: #448AFF;
                     &:focus{
                         outline: 0;
                     }
+                    img{
+                        max-height: 40px;
+                        max-width: 85px;
+                    }
                 }
                 #infos{
                     color: white;

@@ -4,11 +4,11 @@
     <app-sidenav-content (close)="onSidenavClose()" fxHide.lt-md></app-sidenav-content>
     <app-sidenav-content-sm (close)="onSidenavClose()" fxHide.gt-sm></app-sidenav-content-sm>
     <hr>
-    <a mat-list-item (click)="onSidenavClose()">
+    <a mat-list-item (click)="onAuthClick(appRouterUrls.LOGIN)">
             <mat-icon>eject</mat-icon>
             <span class="nav-caption">Login</span>
     </a>
-    <a mat-list-item (click)="onSidenavClose()">
+    <a mat-list-item  (click)="onAuthClick(appRouterUrls.REGISTER)">
         <mat-icon>input</mat-icon>
         <span class="nav-caption">Signup</span>
     </a>

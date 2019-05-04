@@ -36,6 +36,12 @@
 %offerLogo{
     width: 80px;
     align-self: center;
+    display: flex;
+    justify-content: center;
+    img{
+        max-height: 40px;
+        max-width: 85px;
+    }
 }
 %offerRows{
     width: 85%;
@@ -79,4 +85,26 @@
 %offerTagBackground{
     background-color: #d9ddfc;
     color: #4256ef;
+}
+
+%authLayout{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    #frame{
+        background-color: white;
+        border-radius: 10px;
+        width: 300px;
+        min-height: 350px;
+        display: flex;
+        align-items: center;
+    }
+}
+
+%myThemeButton{
+    background-color:#ff4081;
+    border-radius: 25px;
+    color:white;
 }
