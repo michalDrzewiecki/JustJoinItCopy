@@ -37,6 +37,7 @@ export class ExpandableButtonsComponent implements OnInit, OnDestroy{
   }
 
   setInitialSalary(value: string): void{
+    console.log(value);
     if(value != null){
       let num: string = value.slice(0, -1);
       let numericValue: number = Number(num);
@@ -46,17 +47,22 @@ export class ExpandableButtonsComponent implements OnInit, OnDestroy{
         this.slider.value = numericValue;
       }
     }
+    else{
+      this.salaryText.nativeElement.innerHTML = this.sliderChange(0);
+    }
   }
 
   setInitialLevel(value: string): void{
     if(value != null){
       for(let level of this.levels){
         if(value == level){
-          let newValue: string = this.experienceChange(value);
-          this.experienceText.nativeElement.innerHTML = newValue;
+          this.experienceText.nativeElement.innerHTML = this.experienceChange(value);
           break;
         }
       }
+    }
+    else{
+      this.experienceText.nativeElement.innerHTML =this.experienceChange(this.navigationService.DEFAULT_PARAM);
     }
   }
 

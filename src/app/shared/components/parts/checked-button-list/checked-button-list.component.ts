@@ -51,6 +51,10 @@ export class CheckedButtonListComponent implements AfterViewInit{
           return;
         }
       }
+      this.clickedButtonCheck(this.navigationService.DEFAULT_PARAM);
+    }
+    else{
+      this.clickedButtonCheck(this.navigationService.DEFAULT_PARAM);
     }
   }
 

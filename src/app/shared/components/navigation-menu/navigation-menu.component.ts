@@ -18,7 +18,6 @@ export class NavigationMenuComponent implements OnInit, OnDestroy{
 
   ngOnInit(){
     this.themeSubscription = this.navigationService.result.subscribe((value: {actual: string, last: string})=>{
-      console.log(value.actual);
       this.renderer.setElementClass(this.container.nativeElement, value.actual, true);
       this.renderer.setElementClass(this.container.nativeElement, value.last, false);
     });
