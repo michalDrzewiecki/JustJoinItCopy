@@ -1,8 +1,9 @@
-<div id="container" fxLayout="row" >
+<div id="container" fxLayout="row">
     <div id="tabsAndP" fxLayout="row">
         <div id="tabs">
-            <nav mat-tab-nav-bar>
-                <a id="tab" 
+            <nav mat-tab-nav-bar >
+                <a id="tab"
+                    #themeFirst
                     mat-tab-link 
                     routerLinkActive 
                     #jji="routerLinkActive" 
@@ -10,6 +11,7 @@
                     [routerLink]="appRouterUrls.OFFERS">justjoin.it
                 </a>
                 <a id="tab" 
+                    #themeSecond
                     mat-tab-link 
                     routerLinkActive 
                     #jb="routerLinkActive" 

@@ -2,7 +2,7 @@
 
 #container{
     width: 100%;
-    background-color: $globalBackgroundColor;
+    
     .myColumn{
         width: 100%;
         min-height: $contentHeightForNORM;
@@ -10,5 +10,12 @@
     .heightForSM{
         min-height: $contentHeightForSM; 
     }   
+}
+
+.light{
+    background-color: $globalBackgroundColor;
+}
+.dark{
+    background-color: $globalBackgroundColor_dark;
 }
 

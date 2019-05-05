@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Renderer } from '@angular/core';
 import { NavigationService } from 'src/app/shared/services';
 import { Subscription } from 'rxjs';
 import { Router, Event, NavigationEnd } from '@angular/router';
@@ -15,10 +15,12 @@ export class FilterContentSmComponent implements OnInit {
   mainTechnologies: string[] = [];
   hiddenTechnologies: string[] = [];
   subscription: Subscription;
+  themeSubscription: Subscription;
   @ViewChild('cities') cities: ElementRef; 
   @ViewChild('technologies') technologies: ElementRef; 
+  @ViewChild('theme') container: ElementRef; 
   
-  constructor(private navigationService: NavigationService, private router: Router){}
+  constructor(private navigationService: NavigationService, private router: Router, private renderer: Renderer){}
 
   ngOnInit(){
     this.navigationService.getCities(this.mainCities, this.hiddenCities);
@@ -29,6 +31,15 @@ export class FilterContentSmComponent implements OnInit {
         this.setInitialTechnology(this.navigationService.checkParam(this.router, MyParams.technology))
       }
     });
+    this.themeSubscription = this.navigationService.result.subscribe((value: {actual: string, last: string})=>{
+      this.renderer.setElementClass(this.container.nativeElement, value.actual, true);
+      this.renderer.setElementClass(this.container.nativeElement,value.last, false);
+    });
+  }
+
+  ngOnDestroy(){
+    this.themeSubscription.unsubscribe();
+    this.subscription.unsubscribe();
   }
 
   setInitialCity(value: string): void{

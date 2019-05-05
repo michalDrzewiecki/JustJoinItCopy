@@ -2,7 +2,6 @@
 
 #container{
     min-height: $filtrationHeightForNORM; 
-    background-color: $globalBackgroundColor;
     display: flex;
     justify-content: center;
     
@@ -12,4 +11,11 @@
         padding: 5px;
         margin-right: 30px;
     }
+}
+
+.light{
+    background-color: $globalBackgroundColor;
+}
+.dark{
+    background-color: $globalBackgroundColor_dark;
 }

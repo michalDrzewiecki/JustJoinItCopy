@@ -37,7 +37,6 @@ export class ExpandableButtonsComponent implements OnInit, OnDestroy{
   }
 
   setInitialSalary(value: string): void{
-    console.log(value);
     if(value != null){
       let num: string = value.slice(0, -1);
       let numericValue: number = Number(num);
@@ -49,6 +48,7 @@ export class ExpandableButtonsComponent implements OnInit, OnDestroy{
     }
     else{
       this.salaryText.nativeElement.innerHTML = this.sliderChange(0);
+      this.slider.value = 0;
     }
   }
 

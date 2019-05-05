@@ -4,23 +4,24 @@ import { Subject } from 'rxjs';
 import { Router, UrlTree, UrlSegmentGroup, UrlSegment } from '@angular/router';
 
 export class NavigationService {
-    DEFAULT_THEME: string = "theme--default";
-    DARK_THEME: string = "theme--dark";
+    DEFAULT_THEME: string = "light";
+    DARK_THEME: string = "dark";
     DEFAULT_PARAM: string = "all";
     result: Subject<{actual: string, last: string}> = new Subject<{actual: string, last: string}>();
 
     constructor(){
-        this.result.next({actual: this.DEFAULT_THEME, last: this.DARK_THEME});
+        this.result.next({actual: this.DEFAULT_THEME,last: this.DARK_THEME});
     }
 
-    changeTheme(value: boolean):void{
-        if(value){
-            this.result.next({actual: this.DARK_THEME, last:this.DEFAULT_THEME });
+    changeTheme(result: boolean): void{
+        if(!result){
+            this.result.next({actual: this.DEFAULT_THEME,last: this.DARK_THEME});
         }
         else{
-            this.result.next({actual: this.DEFAULT_THEME, last: this.DARK_THEME});
+            this.result.next({actual: this.DARK_THEME,last: this.DEFAULT_THEME});
         }
     }
+
     getAppRouterUrls(){
         return AppRouterUrls;
     }

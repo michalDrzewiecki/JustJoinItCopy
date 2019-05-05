@@ -2,7 +2,7 @@
 
 #container{
     min-height: $filtrationHeightForSM;
-    background-color: $globalBackgroundColor;
+    
 
     .myColumn{
         width: 100%;
@@ -28,5 +28,13 @@
             -webkit-appearance: none;
         }
     }
+}
+
+.light{
+    background-color: $globalBackgroundColor;
+}
+
+.dark{
+    background-color: $globalBackgroundColor_dark;
 }
 

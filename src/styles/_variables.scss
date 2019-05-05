@@ -15,9 +15,16 @@ $sidenavWidth: 250px;
 $imagePaddingValue: 7px;
 
 //colors
-$globalBackgroundColor: #EEEEEE;
+$globalBackgroundColor: #f3f6f8;
+$globalBackgroundColor_dark: #393939;
 
 $navigationBackgroundColor: white;
+$navigationBackgroundColor_dark:#595959;
+
+$fontColor: #99a1ab;
+$fontColor_dark:#b7c4d0;
+
+
 
 $buttonBackgroundColor: white;
 $buttonFontColor: grey;
@@ -27,30 +34,3 @@ $valueColor: black;
 $imageColor: grey;
 //themes
 
-$themes:(
-    default:(
-        globalbg: green
-    ),
-    dark:(
-        globalbg: black
-    )
-
-);
-
-@mixin themed() {
-  @each $theme, $map in $themes {
-    .theme--#{$theme} & {
-      $theme-map: () !global;
-      @each $key, $submap in $map {
-        $value: map-get(map-get($themes, $theme), '#{$key}');
-        $theme-map: map-merge($theme-map, ($key: $value)) !global;
-      }
-      @content;
-      $theme-map: null !global;
-    }
-  }
-}
-
-@function t($key) {
-  @return map-get($theme-map, $key);
-}

@@ -1,5 +1,7 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, ViewChild, Renderer, OnDestroy, ElementRef} from '@angular/core';
 import { NavigationService } from 'src/app/shared/services';
+import { Subscription } from 'rxjs';
+import { MatIcon, MatSlideToggle } from '@angular/material';
 
 @Component({
   selector: 'app-theme-toggler',
@@ -8,7 +10,7 @@ import { NavigationService } from 'src/app/shared/services';
 })
 export class ThemeTogglerComponent implements OnInit{
   result: boolean = false;
-  constructor(private navigationService: NavigationService) {
+  constructor(private navigationService: NavigationService, private renderer: Renderer) {
     
   }
 
@@ -17,6 +19,6 @@ export class ThemeTogglerComponent implements OnInit{
   }
   
   onTogglerChange(){
-      this.navigationService.changeTheme(this.result);
+    this.navigationService.changeTheme(this.result);
   }
 }
