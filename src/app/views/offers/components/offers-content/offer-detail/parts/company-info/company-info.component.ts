@@ -2,6 +2,7 @@ import { Component, OnInit, Renderer, ElementRef, ViewChild, Output, EventEmitte
 import { Offer } from 'src/app/views/offers/offers.interfaces';
 import { ActivatedRoute } from '@angular/router';
 import { OffersService } from 'src/app/views/offers/services';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-company-info',
@@ -12,14 +13,13 @@ export class CompanyInfoComponent implements OnInit{
   @Output() apply = new EventEmitter<void>();
   @ViewChild('frame') frame: ElementRef;
   offer: Offer;
-  appRouterUrls;
   
   constructor(private renderer: Renderer,
                 private offersService: OffersService, 
-                private route: ActivatedRoute){}
+                private route: ActivatedRoute,
+                private location: Location){}
 
   ngOnInit(){
-    this.appRouterUrls = this.offersService.getAppRouterUrls();
     this.route.params.subscribe(
       params => {
         this.offer = this.offersService.getOffer(params['id']);
@@ -39,7 +39,11 @@ export class CompanyInfoComponent implements OnInit{
               +this.offer.companyAddress.city; 
   }
 
-  onApplyClick(){
+  onApplyClick(): void{
     this.apply.emit();
+  }
+
+  onBackClick(): void{
+    this.location.back();
   }
 }
