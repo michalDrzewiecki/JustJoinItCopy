@@ -2,7 +2,8 @@
     <mat-menu #salary>
         <div id="salaryMenu" mat-menu-item fxLayout="column">
             <span>Choose min salary</span>
-            <mat-slider 
+            <mat-slider
+                #slider 
                 thumbLabel
                 [displayWith]="formatLabel"
                 min="0"

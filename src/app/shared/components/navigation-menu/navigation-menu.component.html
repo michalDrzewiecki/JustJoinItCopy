@@ -1,13 +1,16 @@
-<mat-toolbar>
-    <app-navigation-menu-content
-        (toggle)="onToggleSidenav()" 
-        fxHide.lt-md 
-        fxFlex="100%">
-    </app-navigation-menu-content>
-    <app-navigation-menu-content-sm
-        (toggle)="onToggleSidenavForSM()"
-        fxHide.gt-sm
-        fxFlex="100%">
-    </app-navigation-menu-content-sm>
-</mat-toolbar>
+<div id="container" #theme class="theme--dark">
+    <mat-toolbar>
+        <app-navigation-menu-content
+            (toggle)="onToggleSidenav()" 
+            fxHide.lt-md 
+            fxFlex="100%">
+        </app-navigation-menu-content>
+        <app-navigation-menu-content-sm
+            (toggle)="onToggleSidenavForSM()"
+            fxHide.gt-sm
+            fxFlex="100%">
+        </app-navigation-menu-content-sm>
+    </mat-toolbar>
+</div>
+
 

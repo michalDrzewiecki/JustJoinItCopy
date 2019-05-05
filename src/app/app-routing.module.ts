@@ -16,7 +16,6 @@ const routes: Routes = [
       {path: ':id', component: OfferDetailComponent}
       
     ]},
-  { path: AppRoutes.BRANDS, component: BrandsComponent },
   {
     path: AppRoutes.AUTH,
     children: [
@@ -25,7 +24,12 @@ const routes: Routes = [
       { path: AppRoutes.REGISTER, component: AuthRegisterComponent }
     ]
   },
-  {path: AppRoutes.ERROR, redirectTo: AppRouterUrls.OFFERS}
+  { path: AppRoutes.BRANDS, component: BrandsComponent },
+  { path: ':city', component: OffersContentComponent, children: route },
+  { path: ':city/:technology', component: OffersContentComponent, children: route },
+  { path: ':city/:technology/:level', component: OffersContentComponent, children: route },
+  { path: ':city/:technology/:level/:salary', component: OffersContentComponent, children: route },
+  { path: AppRoutes.ERROR, redirectTo: AppRouterUrls.OFFERS }
 ];
 
 @NgModule({

@@ -3,7 +3,8 @@
         <div class="cities">
             <app-checked-button-list 
                 [mainArray]="mainCities" 
-                [hiddenArray]="hiddenCities" >
+                [hiddenArray]="hiddenCities"
+                [paramType]="cityParam" >
             </app-checked-button-list>
         </div>
         <div id="dayNightOption">
@@ -14,7 +15,8 @@
         <div class="technologies">
             <app-checked-button-list 
                 [mainArray]="mainTechnologies" 
-                [hiddenArray]="hiddenTechnologies">
+                [hiddenArray]="hiddenTechnologies"
+                [paramType]="technologyParam">
             </app-checked-button-list>
         </div>  
         <div>

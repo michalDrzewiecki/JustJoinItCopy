@@ -5,8 +5,15 @@ export enum ExperienceLevel{
     senior
 }
 
+export enum MyParams{
+    city = 0,
+    technology = 1,
+    level = 2,
+    salary = 3    
+}
+
 export enum Technology{
-    All = 1,
+    all = 1,
     JS = 1, 
     HTML = 1,
     PHP = 1,
@@ -29,7 +36,7 @@ export enum Technology{
 }
 
 export enum City{
-    All = 1,
+    all = 1,
     Warszawa = 1,
     Kraków = 1,
     Wrocław = 1,

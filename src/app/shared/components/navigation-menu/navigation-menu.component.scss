@@ -1,8 +1,12 @@
 @import "../../../../styles/variables";
 
-.mat-toolbar{
-    background-color: $navigationBackgroundColor;
-    padding-top: $navigationPaddingTop;
-    min-height: $navigationHeight;
+#container{
+    .mat-toolbar{
+        @include themed() {
+            background-color: t('globalbg');
+        }
+        background-color: $navigationBackgroundColor;
+        padding-top: $navigationPaddingTop; 
+        min-height: $navigationHeight;
+    }
 }
-

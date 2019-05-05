@@ -1,5 +1,5 @@
 import { Component, ViewChild, OnInit, NgZone, OnDestroy} from '@angular/core';
-import { latLng, tileLayer, circleMarker, Marker, CircleMarker, marker, layerGroup } from 'leaflet';
+import { latLng, tileLayer, CircleMarker, marker, divIcon } from 'leaflet';
 import { OpenStreetMapProvider } from 'leaflet-geosearch';
 import { OffersService } from '../../../services';
 import { Offer } from '../../../offers.interfaces';
@@ -21,6 +21,7 @@ export class MapComponent implements OnInit, OnDestroy{
   lastMarker: CircleMarker;
 
   constructor(private offersService: OffersService, private router: Router, private zone: NgZone, private route: ActivatedRoute) {}
+  
   ngOnInit(){
     this.offerSubscription = this.offersService.hoveredOfferChanged.subscribe((offer: Offer)=>{
       if(offer != null){
@@ -36,16 +37,17 @@ export class MapComponent implements OnInit, OnDestroy{
           this.lastMarker.closePopup();
         }
       }
-    })
+    });
     this.appRouterUrls = this.offersService.getAppRouterUrls();
     this.offers = this.offersService.getOffers();
     for (let offer of this.offers){
       this.changeAddressIntoCoordinates(offer);
     }
     this.options = {
+      attributionControl: false, 
       layers: [
         tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: '&copy; OpenStreetMap contributors'
+          attribution: '&copy; OpenStreetMap contributors',
         })
       ],
       zoom: 6,
@@ -72,13 +74,15 @@ export class MapComponent implements OnInit, OnDestroy{
   }
 
   createMarker(coordinates, offer: Offer){
-    let newMarker = circleMarker([coordinates.y, coordinates.x], {
-      color: offer.color,
-      fillColor: offer.color,
-      fillOpacity: 0.4,
-      radius: 20,
+    let htmlImage = "<img style='border-radius:50%; border: 1px solid black' height='45px' width='45px' src='"+ offer.companyLogo + "'/>";
+    let myIcon = divIcon({
+      html: htmlImage,
+      iconAnchor: [+22, +22],
+      className: 'dummyClass'
     });
+    let newMarker = marker([coordinates.y, coordinates.x]);
     newMarker.options.attribution = offer.routingTag;
+    newMarker.options.icon = myIcon;
     const popup: string = "<center><b>" 
                             + offer.position 
                             + "</b>"
