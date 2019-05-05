@@ -1,6 +1,6 @@
 <div id="container" fxLayout="row">
     <div class="myColumn">
-        <select class="mySelect">
+        <select class="mySelect" #cities (change)="cityChange()">
             <option selected disabled hidden></option>
             <option 
                 *ngFor="let city of mainCities.concat(hiddenCities)" 
@@ -10,7 +10,7 @@
         </select>
     </div>
     <div class="myColumn">
-        <select class="mySelect">
+        <select class="mySelect" #technologies (change)="technologyChange()">
             <option selected disabled hidden></option>
             <option 
                 *ngFor="let technology of mainTechnologies.concat(hiddenTechnologies)" 
