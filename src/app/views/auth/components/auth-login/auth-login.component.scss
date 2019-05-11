@@ -22,6 +22,9 @@
             .leftControllImage{
                 @extend %leftControllImage;
             }
+            .error{
+                @extend %error;
+            }
         }
 
         #myRow{

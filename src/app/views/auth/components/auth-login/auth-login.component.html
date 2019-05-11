@@ -6,13 +6,24 @@
         <div class="myInput" fxLayout="row">
             <mat-icon class="leftControllImage">email</mat-icon>
             <mat-form-field>
-                <input class="realInput" matInput placeholder="Email">
+                <input class="realInput" matInput placeholder="Email" [formControl]="email" [errorStateMatcher]="matcher">
+                <mat-error class="error" *ngIf="email.hasError('email') && !email.hasError('required')">
+                    it is not valid email address
+                </mat-error>
+                <mat-error class="error" *ngIf="email.hasError('required')">
+                    field is <strong>required</strong>
+                </mat-error>
+                <mat-error class="error" *ngIf="email.hasError('wrongData')">incorrect</mat-error>
             </mat-form-field>
         </div>
         <div class="myInput" fxLayout="row">
             <mat-icon class="leftControllImage">enhanced_encryption</mat-icon>
             <mat-form-field>
-                <input class="realInput" type="password" matInput placeholder="Password">
+                <input class="realInput" type="password" matInput placeholder="Password" [formControl]="password">
+                <mat-error class="error" *ngIf="password.hasError('required')">
+                    field is <strong>required</strong>
+                </mat-error>
+                <mat-error class="error" *ngIf="password.hasError('wrongData')">incorrect</mat-error>
             </mat-form-field>
         </div>
         <div id="myRow" fxLayout="row">
@@ -20,7 +31,7 @@
                 <mat-checkbox color="primary">Remember me</mat-checkbox>
             </div>
             <div id="loginButtonDiv">
-                <button id="login" mat-stroked-button>Login</button>
+                <button id="login" mat-stroked-button (click)="onLogin()">Login</button>
             </div>
         </div>
         <div id="register">

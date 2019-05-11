@@ -4,6 +4,7 @@ import { MaterialModule } from '../../material/material.module';
 import { AuthServices } from './services';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 // in this module we import every angular material module
@@ -11,7 +12,9 @@ import { RouterModule } from '@angular/router';
   imports: [
     MaterialModule,
     FlexLayoutModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     ...AuthComponents

@@ -5,40 +5,61 @@
     @extend %authLayout;
     background-color: $globalBackgroundColor;
     #frame{
-        #main{
-            a{
-                text-decoration: none;
-                color: black;
+        #content{
+            #main{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                a{
+                    text-decoration: none;
+                    color: black;
+                }
+                a:hover{
+                    cursor: pointer;
+                }
             }
-            a:hover{
-                cursor: pointer;
+            .error{
+                @extend %error;
             }
-        }
-        .myInput{
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            .leftControllImage{
-                @extend %leftControllImage;
+            .myInput{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .leftControllImage{
+                    @extend %leftControllImage;
+                }
             }
-        }
-
-        #myRow{
-            width: 100%;
-            display: flex;
-            justify-content: center; 
-            margin-top: 20px;
-            margin-bottom: 20px;
-            #registerButtonDiv{
-                width: 60%;
-                #register{
-                    @extend %myThemeButton;
-                    width: 100%;
+    
+            #myRow{
+                width: 100%;
+                display: flex;
+                justify-content: center; 
+                margin-top: 20px;
+                margin-bottom: 20px;
+                #registerButtonDiv{
+                    width: 60%;
+                    #register{
+                        @extend %myThemeButton;
+                        width: 100%;
+                    }
                 }
             }
         }
+        #succesfullContent{
+            #loginButton{
+                @extend %myThemeButton;
+                border: none;
+                padding: 10px;
 
+                &:focus{
+                    outline: 0;
+                }
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
     }
     
     

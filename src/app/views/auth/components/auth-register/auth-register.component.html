@@ -1,42 +1,100 @@
 <div id="container">
     <div id="frame" fxLayout="column">
-        <h2 id="main">
-            <a [routerLink]="appRouterUrls.OFFERS">justjoin.it</a>
-        </h2>
-        <div class="myInput" fxLayout="row">
-            <mat-icon class="leftControllImage">account_circle</mat-icon>
-            <mat-form-field>
-                <input class="realInput" matInput placeholder="Name">
-            </mat-form-field>
-        </div>
-        <div class="myInput" fxLayout="row">
-            <mat-icon class="leftControllImage">account_circle</mat-icon>
-            <mat-form-field>
-                <input class="realInput" matInput placeholder="Surname">
-            </mat-form-field>
-        </div>
-        <div class="myInput" fxLayout="row">
-            <mat-icon class="leftControllImage">email</mat-icon>
-            <mat-form-field>
-                <input class="realInput" matInput placeholder="Email">
-            </mat-form-field>
-        </div>
-        <div class="myInput" fxLayout="row">
-            <mat-icon class="leftControllImage">enhanced_encryption</mat-icon>
-            <mat-form-field>
-                <input class="realInput" type="password" matInput placeholder="Password">
-            </mat-form-field>
-        </div>
-        <div class="myInput" fxLayout="row">
-            <mat-icon class="leftControllImage">enhanced_encryption</mat-icon>
-            <mat-form-field>
-                <input class="realInput" type="password" matInput placeholder="Repeat password">
-            </mat-form-field>
-        </div>
-        <div id="myRow">
-            <div id="registerButtonDiv">
-                <button id="register" mat-stroked-button>Register</button>
+        <div id="content" #content>
+            <h2 id="main">
+                <a [routerLink]="appRouterUrls.OFFERS">justjoin.it</a>
+            </h2>
+            <div class="myInput" fxLayout="row">
+                <mat-icon class="leftControllImage">account_circle</mat-icon>
+                <mat-form-field>
+                    <input 
+                        class="realInput" 
+                        matInput 
+                        placeholder="Name" 
+                        [formControl]="name">
+                    <mat-error class="error" *ngIf="name.hasError('required')">
+                        field is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="myInput" fxLayout="row">
+                <mat-icon class="leftControllImage">account_circle</mat-icon>
+                <mat-form-field>
+                    <input 
+                        class="realInput" 
+                        matInput 
+                        placeholder="Surname" 
+                        [formControl]="surname">
+                    <mat-error class="error" *ngIf="surname.hasError('required')">
+                        field is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="myInput" fxLayout="row">
+                <mat-icon class="leftControllImage">email</mat-icon>
+                <mat-form-field>
+                    <input 
+                        class="realInput"
+                        matInput 
+                        placeholder="Email" 
+                        [formControl]="email"
+                        [errorStateMatcher]="matcher">
+                    <mat-error class="error" *ngIf="email.hasError('email') && !email.hasError('required')">
+                        it is not valid email address
+                    </mat-error>
+                    <mat-error class="error" *ngIf="email.hasError('required')">
+                        field is <strong>required</strong>
+                    </mat-error>
+                    <mat-error class="error" *ngIf="email.hasError('emailExists')">
+                        email is already used 
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="myInput" fxLayout="row">
+                <mat-icon class="leftControllImage">enhanced_encryption</mat-icon>
+                <mat-form-field>
+                    <input 
+                        class="realInput" 
+                        type="password" 
+                        matInput 
+                        placeholder="Password" 
+                        [formControl]="password">
+                    <mat-error class="error" *ngIf="password.hasError('required')">
+                        field is <strong>required</strong>
+                    </mat-error>
+                    <mat-error class="error" *ngIf="password.hasError('notTheSame')">
+                        passwords must be the same
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="myInput" fxLayout="row">
+                <mat-icon class="leftControllImage">enhanced_encryption</mat-icon>
+                <mat-form-field>
+                    <input 
+                        class="realInput" 
+                        type="password" 
+                        matInput 
+                        placeholder="Repeat password" 
+                        [formControl]="repeatedPassword">
+                    <mat-error class="error" *ngIf="repeatedPassword.hasError('required')">
+                        field is <strong>required</strong>
+                    </mat-error>
+                    <mat-error class="error" *ngIf="repeatedPassword.hasError('notTheSame')">
+                        passwords must be the same
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div id="myRow">
+                <div id="registerButtonDiv">
+                    <button id="register" mat-stroked-button (click)="onRegister()">Register</button>
+                </div>
             </div>
         </div>
+        
+        <div id="succesfullContent" fxLayout="column" *ngIf="isVisible">
+            <h3>Your account has been<br> succesfully created!</h3>
+            <button id="loginButton" [routerLink]="appRouterUrls.LOGIN">log in</button>
+        </div>
+        
     </div>
 </div>
