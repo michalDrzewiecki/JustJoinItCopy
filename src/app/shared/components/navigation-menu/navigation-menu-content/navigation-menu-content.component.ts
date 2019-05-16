@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter, OnInit, Renderer, ViewChild, ElementRef, OnDestroy } from '@angular/core';
-import { NavigationService } from '../../../services';
+import { NavigationService, HttpClientService } from '../../../services';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -15,7 +15,9 @@ export class NavigationMenuContentComponent implements OnInit, OnDestroy{
   @ViewChild('themeSecond') second: ElementRef; 
   
 
-  constructor(private navigationService: NavigationService, private renderer: Renderer) {}
+  constructor(private navigationService: NavigationService, 
+                private renderer: Renderer,
+                private httpClientService: HttpClientService) {}
 
   ngOnInit(){
     this.appRouterUrls = this.navigationService.getAppRouterUrls();

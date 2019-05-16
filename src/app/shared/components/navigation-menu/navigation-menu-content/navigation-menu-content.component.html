@@ -21,7 +21,8 @@
             </nav>
         </div>
         <div id="paragraph" fxHide.lt-lg>
-            <p>The biggest IT job board for Polish Devs. </p>
+            <p *ngIf="!httpClientService.isCookie()">The biggest IT job board for Polish Devs. </p>
+            <p *ngIf="httpClientService.isCookie()">You are logged as {{ httpClientService.getUser() }}</p>
         </div>
     </div>
     <div id="menuOptions">

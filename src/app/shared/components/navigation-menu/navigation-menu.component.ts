@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter, OnInit, ViewChild, ElementRef, Renderer, OnDestroy} from '@angular/core';
-import { NavigationService } from '../../services';
+import { NavigationService, HttpClientService } from '../../services';
 import { Subscription } from 'rxjs';
 import { MatToolbar } from '@angular/material';
 
@@ -15,7 +15,8 @@ export class NavigationMenuComponent implements OnInit, OnDestroy{
   appRouterUrls;
   themeSubscription: Subscription;
 
-  constructor(private navigationService: NavigationService, private renderer: Renderer) {}
+  constructor(private navigationService: NavigationService,
+      private renderer: Renderer) {}
 
   ngOnInit(){
     this.themeSubscription = this.navigationService.result.subscribe((value: {actual: string, last: string})=>{

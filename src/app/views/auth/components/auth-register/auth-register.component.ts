@@ -36,17 +36,23 @@ export class AuthRegisterComponent implements OnInit {
     this.name.value ? userName = this.name.value : this.name.markAsTouched();
     this.surname.value ? userSurname = this.surname.value : this.surname.markAsTouched();
     this.email.value && this.email.valid ? userEmail = this.email.value : this.email.markAsTouched();
-    this.password.value ? userPassword = null : this.password.markAsTouched();
+    this.password.value ? userPassword = this.checkPasswords() : this.password.markAsTouched();
     this.repeatedPassword.value ? null : this.repeatedPassword.markAsTouched();
-    (this.password.value  && (this.password.value == this.repeatedPassword.value)) ? 
-                  userPassword = this.password.value : this.setPasswordsInputError();
     if(userName && userSurname && userEmail && userPassword){
       let response = await this.authService.register(userName, userSurname, userEmail, userPassword);
       response instanceof HttpErrorResponse ? this.negativeResponse() : this.positiveResponse();
     }
   }
 
+  checkPasswords():string{
+    let response: string = "";
+    this.password.value == this.repeatedPassword.value ? response = this.password.value : this.setPasswordsInputError();
+    return response;
+  }
+
   setPasswordsInputError():void{
+    this.password.setValue("");
+    this.password.setValue("");
     this.password.setErrors({'notTheSame': true});
     this.repeatedPassword.setErrors({'notTheSame': true});
   }
@@ -57,6 +63,7 @@ export class AuthRegisterComponent implements OnInit {
   }
 
   negativeResponse():void{
+    this.email.setValue("");
     this.email.setErrors({'emailExists':true});
   }
 }

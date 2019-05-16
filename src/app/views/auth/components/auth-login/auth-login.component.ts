@@ -34,6 +34,8 @@ export class AuthLoginComponent implements OnInit{
   }
 
   negativeResponse():void{
+    this.email.setValue("");
+    this.password.setValue("");
     this.email.setErrors({'wrongData': true});
     this.password.setErrors({'wrongData': true});
   }

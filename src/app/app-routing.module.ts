@@ -6,10 +6,11 @@ import { OffersContentComponent, OfferDetailComponent, OffersListComponent} from
 import { BrandsComponent } from './views/brands/components';
 import { OffersResolver } from './resolvers/offers-resolver';
 
+
 const route = [{path: '', pathMatch: 'full', component: OffersListComponent}];
 
 const routes: Routes = [
-  { path: '', redirectTo: AppRouterUrls.OFFERS, pathMatch: 'full' },
+  { path: '', redirectTo: AppRouterUrls.OFFERS, pathMatch: 'full'},
   { 
     path: AppRoutes.OFFERS, component: OffersContentComponent, resolve: { offers: OffersResolver},
     children:[

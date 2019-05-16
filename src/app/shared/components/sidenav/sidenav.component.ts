@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Output, Input, OnInit } from '@angular/core';
-import { NavigationService } from 'src/app/shared/services';
+import { Component, EventEmitter, Output, Input, OnInit, OnDestroy } from '@angular/core';
+import { NavigationService, HttpClientService } from 'src/app/shared/services';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-sidenav',
@@ -11,7 +12,9 @@ export class SidenavComponent implements OnInit{
   @Output() sidenavClose = new EventEmitter<void>();
   appRouterUrls;
   
-  constructor(private navigationService: NavigationService, private router: Router) {}
+  constructor(private navigationService: NavigationService, 
+                private router: Router, 
+                private httpClientService: HttpClientService) {}
 
   ngOnInit(){
     this.appRouterUrls = this.navigationService.getAppRouterUrls();
@@ -24,5 +27,10 @@ export class SidenavComponent implements OnInit{
 
   onSidenavClose(){
     this.sidenavClose.emit();
+  }
+
+  onLogoutClick(){
+    this.sidenavClose.emit();
+    this.httpClientService.logout();
   }
 }

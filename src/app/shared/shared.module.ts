@@ -6,7 +6,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { NavigationServices } from './services';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { CookieService } from 'ngx-cookie-service';
 @NgModule({
   imports: [
     RouterModule,
@@ -22,7 +22,8 @@ import { BrowserModule } from '@angular/platform-browser';
     ...SharedComponents
   ],
   providers: [
-    ...NavigationServices
+    ...NavigationServices,
+    CookieService
   ]
 })
 export class SharedModule { }

@@ -4,12 +4,17 @@
     <app-sidenav-content (close)="onSidenavClose()" fxHide.lt-md></app-sidenav-content>
     <app-sidenav-content-sm (close)="onSidenavClose()" fxHide.gt-sm></app-sidenav-content-sm>
     <hr>
-    <a mat-list-item (click)="onAuthClick(appRouterUrls.LOGIN)">
+    <a mat-list-item (click)="onAuthClick(appRouterUrls.LOGIN)" *ngIf="!httpClientService.isCookie()">
             <mat-icon>eject</mat-icon>
             <span class="nav-caption">Login</span>
     </a>
-    <a mat-list-item  (click)="onAuthClick(appRouterUrls.REGISTER)">
+    <a mat-list-item (click)="onAuthClick(appRouterUrls.REGISTER)" *ngIf="!httpClientService.isCookie()">
         <mat-icon>input</mat-icon>
         <span class="nav-caption">Signup</span>
     </a>
+    <a mat-list-item (click)="onLogoutClick()" *ngIf="httpClientService.isCookie()">
+        <mat-icon>cancel_presentation</mat-icon>
+        <span class="nav-caption">Logout</span>
+    </a>
+
 </mat-nav-list>

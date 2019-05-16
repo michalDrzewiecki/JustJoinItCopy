@@ -1,7 +1,8 @@
 import { AppRouterUrls } from '../../app-routing.config';
-import { ExperienceLevel, City, Technology, MyParams } from '../shared.enums';
+import { ExperienceLevel, City, MyParams, Technology } from '../shared.enums';
 import { Subject } from 'rxjs';
 import { Router, UrlTree, UrlSegmentGroup, UrlSegment } from '@angular/router';
+import { HttpClientService } from './http-client.service';
 
 export class NavigationService {
     DEFAULT_THEME: string = "light";
@@ -68,6 +69,7 @@ export class NavigationService {
         }
         return params;
     }
+    
     setParam(router: Router, paramType: MyParams, param: string):void{
         let actualParams: string[] = this.getRouteParams(router);
         let finalParams: string[] = [this.DEFAULT_PARAM, this.DEFAULT_PARAM, this.DEFAULT_PARAM, this.DEFAULT_PARAM];

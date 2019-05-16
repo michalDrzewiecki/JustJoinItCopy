@@ -10,8 +10,8 @@
             <div id="navigation" #nav>
                 <app-navigation-menu 
                     id="nav" 
-                    (sidenavToggle)="sidenav.toggle()"
-                    (sidenavToggleForSM)="sidenavForSM.toggle()">
+                    (sidenavToggle)="sidenav.toggle($event)"
+                    (sidenavToggleForSM)="sidenavForSM.toggle($event)">
                 </app-navigation-menu>
             </div>
             <div id="filtration" #filter>
