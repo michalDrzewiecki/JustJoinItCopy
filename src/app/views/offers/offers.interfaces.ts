@@ -1,27 +1,20 @@
-import { Agreement, MyColor } from './offers.enums'
-import { ExperienceLevel, Technology } from '../../shared/shared.enums'
-
-export interface Address{
-    streetName: string,
-    buildingNumber: Number,
-    city: string
-}
-
 export interface Offer{
     companyName: string,
     companySize: number,
     companyLogo: string,
-    companyAddress: Address,
+    companyAddress: {streetName: string, buildingNumber: Number, city: string},
     companyWebPage: string,
     position: string,
     salary: {lowerLimit:number, upperLimit:number},
     tags: string[],
     routingTag: string,
-    experience: ExperienceLevel,
-    agreementType: Agreement,
+    experience: string,
+    agreementType: string,
     description: string,
-    insertionDate: Date, 
-    requiredSkills: {technology: Technology, level: number}[],
-    color?: string
+    requiredSkills: {technology: {name: string, color: string}, level: number}[],
+    insertionDate: Date,
+    author: {name: string, surname: string},
+    isHidden: boolean,
+    color: string
 }
 

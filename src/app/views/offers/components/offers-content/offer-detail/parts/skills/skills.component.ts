@@ -12,7 +12,7 @@ import { Technology } from 'src/app/shared/shared.enums';
 export class SkillsComponent {
   maxLevel: number = 5;
   numbers: number[] = [];
-  levels: string[]=["student","junior", "regular", "advanced", "proffesional"];
+  levels: string[]=["student", "junior", "regular", "advanced", "proffesional"];
   appRouterUrls;
   offer: Offer;
     
@@ -26,10 +26,6 @@ export class SkillsComponent {
         this.offer = this.offersService.getOffer(params['id']);
     });
     this.numbers = Array(this.maxLevel).fill(0);
-  }
-
-  getTechnology(level: any):string{
-    return Technology[level.technology];
   }
 
   getLevel(level: any):string{

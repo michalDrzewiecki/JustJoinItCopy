@@ -1,7 +1,8 @@
-import { Component, ViewChild, ElementRef, OnDestroy} from '@angular/core';
+import { Component, ViewChild, ElementRef, OnDestroy, OnInit} from '@angular/core';
 import { Router, Event, NavigationEnd } from '@angular/router';
 import { AppRouterUrls } from './app-routing.config';
 import { Subscription } from 'rxjs';
+import { OffersService } from './views/offers/services';
 
 @Component({
   selector: 'app-root',
