@@ -15,7 +15,7 @@
                 </button>
                 <div id="infos">
                     {{ getMoney() }}<br>   
-                    <b id="position">{{ offer.position }}</b><br>
+                    <b id="position">{{ offer.position }}</b><b *ngIf="this.offer.isHidden"> (offer blocked)</b><br>
                     {{ getAddress() }}
                 </div>
             </div>

@@ -23,7 +23,8 @@ export class CompanyInfoComponent implements OnInit{
     this.route.params.subscribe(
       params => {
         this.offer = this.offersService.getOffer(params['id']);
-        this.renderer.setElementStyle(this.frame.nativeElement, 'backgroundColor', this.offer.color);
+        let value: string = 'linear-gradient(to bottom right, '+ this.offer.color + ', white)';
+        this.renderer.setElementStyle(this.frame.nativeElement, 'backgroundImage', value);
       });
   }
 

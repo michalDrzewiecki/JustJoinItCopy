@@ -1,5 +1,6 @@
 import { Injectable} from '@angular/core';
-import { NavigationService, HttpClientService } from 'src/app/shared/services';
+import { NavigationService } from 'src/app/shared/services';
+import { HttpClientService } from 'src/app/shared/http';
 import { User, LoginUser } from 'src/app/shared/shared.interfaces';
 import { ErrorStateMatcher } from '@angular/material';
 import { FormControl, FormGroupDirective, NgForm } from '@angular/forms';

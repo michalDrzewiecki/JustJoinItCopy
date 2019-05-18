@@ -2,7 +2,8 @@ import { Component, ViewChild, ElementRef, OnDestroy, OnInit} from '@angular/cor
 import { Router, Event, NavigationEnd } from '@angular/router';
 import { AppRouterUrls } from './app-routing.config';
 import { Subscription } from 'rxjs';
-import { OffersService } from './views/offers/services';
+import { NavigationService } from './shared/services';
+import { MyParams } from './shared/shared.enums';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,7 @@ import { OffersService } from './views/offers/services';
 export class AppComponent implements OnDestroy{
   appRouterUrls;
   subscription: Subscription;
+
   @ViewChild('nav') nav: ElementRef;
   @ViewChild('filter') filter: ElementRef;
   

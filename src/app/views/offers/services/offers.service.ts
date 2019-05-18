@@ -1,6 +1,7 @@
 import { Offer } from '../offers.interfaces'
 import { Injectable } from '@angular/core';
-import { NavigationService, HttpClientService } from 'src/app/shared/services';
+import { NavigationService } from 'src/app/shared/services';
+import { HttpClientService } from 'src/app/shared/http';
 import { Subject } from 'rxjs';
 
 @Injectable()

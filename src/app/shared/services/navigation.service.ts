@@ -2,16 +2,19 @@ import { AppRouterUrls } from '../../app-routing.config';
 import { ExperienceLevel, City, MyParams, Technology } from '../shared.enums';
 import { Subject } from 'rxjs';
 import { Router, UrlTree, UrlSegmentGroup, UrlSegment } from '@angular/router';
-import { HttpClientService } from './http-client.service';
+import { HttpClientService } from '../http/http-client.service';
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export class NavigationService {
     DEFAULT_THEME: string = "light";
     DARK_THEME: string = "dark";
     DEFAULT_PARAM: string = "all";
     result: Subject<{actual: string, last: string}> = new Subject<{actual: string, last: string}>();
 
-    constructor(){
+    constructor(private httpClientService: HttpClientService, private router: Router){
         this.result.next({actual: this.DEFAULT_THEME,last: this.DARK_THEME});
+        this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     }
 
     changeTheme(result: boolean): void{
@@ -26,6 +29,7 @@ export class NavigationService {
     getAppRouterUrls(){
         return AppRouterUrls;
     }
+    
     getExperienceLevelArray():string[]{
         let levels: string[] = [];
         for(let exp in ExperienceLevel){
@@ -35,6 +39,7 @@ export class NavigationService {
         }
         return levels.slice();
     }
+
     getCities(mainCities: string[], hiddenCities: string[]): void{
         for(let city in City){
             if(isNaN(Number(city))){
@@ -47,6 +52,7 @@ export class NavigationService {
             } 
         }
     }
+
     getTechnologies(mainTechnologies: string[], hiddenTechnologies: string[]):void{
         for(let technology in Technology){
             if(isNaN(Number(technology))){
@@ -59,6 +65,7 @@ export class NavigationService {
             } 
         }
     }
+
     getRouteParams(router: Router): string[]{
         let params: string[] = [];
         const tree: UrlTree = router.parseUrl(router.url);
@@ -81,6 +88,7 @@ export class NavigationService {
             }
         }
         finalParams[paramType] = param;
+        this.httpClientService.setParams(finalParams.slice());
         for(let i = finalParams.length-1; i >= 0; i--){
             if(finalParams[i] == this.DEFAULT_PARAM){
                 finalParams.pop();
@@ -92,11 +100,13 @@ export class NavigationService {
         let route: string = "";
         for(let param of finalParams){
             route += '/' + param;
-        }
-        router.navigateByUrl(route);
+        }   
+        this.router.navigateByUrl(route);
     }
+    
     checkParam(router: Router, myParam: MyParams): string{
         let actualParams: string[] = this.getRouteParams(router);
         return actualParams[myParam];
     }
+
 }

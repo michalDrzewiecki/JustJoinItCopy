@@ -62,19 +62,23 @@ export class ExpandableButtonsComponent implements OnInit, OnDestroy{
       }
     }
     else{
-      this.experienceText.nativeElement.innerHTML =this.experienceChange(this.navigationService.DEFAULT_PARAM);
+      this.experienceText.nativeElement.innerHTML = this.experienceChange(this.navigationService.DEFAULT_PARAM);
     }
   }
 
-  onSliderSalaryChange(event: any):void{
+  onSliderValueChoose(event: any):void{
     let newValue: string = this.sliderChange(event.value);
     let paramValue: string = this.navigationService.DEFAULT_PARAM;
     if(newValue != "Salary"){
       let salary: number = event.value/1000;
       paramValue = salary + "k";
     }
-    this.salaryText.nativeElement.innerHTML = newValue;
     this.navigationService.setParam(this.router, MyParams.salary, paramValue);
+  }
+
+  onSliderSalaryChange(event: any):void{
+    let newValue: string = this.sliderChange(event.value);
+    this.salaryText.nativeElement.innerHTML = newValue;
   }
 
   sliderChange(value: number): string{
@@ -83,7 +87,7 @@ export class ExpandableButtonsComponent implements OnInit, OnDestroy{
       newValue = "Salary";
     }
     else{
-      newValue = "> "+ value + " PLN";
+      newValue = ">= "+ value + " PLN";
     }
     return newValue;
   }

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output, Input, OnInit, OnDestroy } from '@angular/core';
-import { NavigationService, HttpClientService } from 'src/app/shared/services';
+import { NavigationService } from 'src/app/shared/services';
+import { HttpClientService } from 'src/app/shared/http';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 

@@ -1,7 +1,6 @@
 import { Component, ElementRef, ViewChild, OnInit, OnDestroy, Renderer } from '@angular/core';
-import { Subscription, Observable } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { NavigationService } from 'src/app/shared/services';
-import { OffersService } from '../../services';
 
 @Component({
   selector: 'app-offers-content',
@@ -14,7 +13,8 @@ export class OffersContentComponent implements OnInit, OnDestroy {
   constructor(private renderer: Renderer, 
               private navigationService: NavigationService) {
               }            
-  ngOnInit(){
+  
+  ngOnInit(){    
     this.themeSubscription = this.navigationService.result.subscribe((value: {actual: string, last: string})=>{
       this.renderer.setElementClass(this.container.nativeElement, value.actual, true);
       this.renderer.setElementClass(this.container.nativeElement,value.last, false);

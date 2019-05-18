@@ -6,8 +6,9 @@
     </div>
     <div id="rows">
         <div class="myRow" fxLayout="row">
-            <div id="position">
+            <div id="position" fxLayout="row">
                 <p >{{ offer.position }}</p>
+                <mat-icon *ngIf="this.offer.isHidden">lock</mat-icon>
             </div>
         </div>
         <div class="myRow" fxLayout="row">

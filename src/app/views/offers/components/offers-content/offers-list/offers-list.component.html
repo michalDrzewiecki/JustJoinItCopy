@@ -12,4 +12,8 @@
         [offer] = "offer"
         class="myOffer">
     </app-offer-sm>
+
+    <div id="error" *ngIf="noOffers">
+        <h3>Sorry there is no job offers for that filter configuration :( </h3>
+    </div>
 </div>

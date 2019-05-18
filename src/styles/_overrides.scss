@@ -52,6 +52,13 @@
     margin-left: 10px;
     display: flex;
     justify-content: space-between;
+    #position{
+        display: flex;
+        align-items: center;
+        mat-icon{
+            @extend %rightControllImage;
+        }
+    }
 }
 %offerPosition{
     color:darkslategrey;

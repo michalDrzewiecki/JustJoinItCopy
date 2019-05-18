@@ -1,5 +1,11 @@
-import { Component, Output, EventEmitter, OnInit, ViewChild, ElementRef, Renderer, OnDestroy} from '@angular/core';
-import { NavigationService, HttpClientService } from '../../services';
+import { Component,
+          Output,
+          EventEmitter,
+          OnInit,
+          ViewChild,
+          Renderer,
+          OnDestroy } from '@angular/core';
+import { NavigationService } from '../../services';
 import { Subscription } from 'rxjs';
 import { MatToolbar } from '@angular/material';
 

@@ -11,13 +11,14 @@ const route = [{path: '', pathMatch: 'full', component: OffersListComponent}];
 
 const routes: Routes = [
   { path: '', redirectTo: AppRouterUrls.OFFERS, pathMatch: 'full'},
-  { 
-    path: AppRoutes.OFFERS, component: OffersContentComponent, resolve: { offers: OffersResolver},
-    children:[
-      {path: '', pathMatch: 'full', component: OffersListComponent},
-      {path: ':id', component: OfferDetailComponent}
-      
-    ]},
+  { path: AppRoutes.OFFERS, 
+      component: OffersContentComponent, 
+      resolve: { offers: OffersResolver},
+      children:[
+        {path: '', pathMatch: 'full', component: OffersListComponent },
+        {path: ':id', component: OfferDetailComponent } 
+    ]
+  },
   {
     path: AppRoutes.AUTH,
     children: [
@@ -27,10 +28,26 @@ const routes: Routes = [
     ]
   },
   { path: AppRoutes.BRANDS, component: BrandsComponent },
-  { path: ':city', component: OffersContentComponent, children: route, resolve: { offers: OffersResolver}},
-  { path: ':city/:technology', component: OffersContentComponent, children: route, resolve: { offers: OffersResolver}},
-  { path: ':city/:technology/:level', component: OffersContentComponent, children: route, resolve: { offers: OffersResolver} },
-  { path: ':city/:technology/:level/:salary', component: OffersContentComponent, children: route, resolve: { offers: OffersResolver} },
+  { path: ':city', 
+      component: OffersContentComponent,
+      children: route,
+      resolve: { offers: OffersResolver},
+  },
+  { path: ':city/:technology',
+      component: OffersContentComponent,
+      children: route,
+      resolve: { offers: OffersResolver},
+  },
+  { path: ':city/:technology/:level',
+      component: OffersContentComponent,
+      children: route,
+      resolve: { offers: OffersResolver}, 
+  },
+  { path: ':city/:technology/:level/:salary', 
+      component: OffersContentComponent,
+      children: route,
+      resolve: { offers: OffersResolver}, 
+  },
   { path: AppRoutes.ERROR, redirectTo: AppRouterUrls.OFFERS }
 ];
 

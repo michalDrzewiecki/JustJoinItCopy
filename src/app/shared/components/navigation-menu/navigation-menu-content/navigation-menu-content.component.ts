@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter, OnInit, Renderer, ViewChild, ElementRef, OnDestroy } from '@angular/core';
-import { NavigationService, HttpClientService } from '../../../services';
+import { NavigationService } from '../../../services';
+import { HttpClientService } from '../../../http'
 import { Subscription } from 'rxjs';
 
 @Component({

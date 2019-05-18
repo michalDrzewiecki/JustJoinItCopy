@@ -5,7 +5,6 @@
     [routerLink]="[appRouterUrls.OFFERS, tag]" 
     (mouseenter)="onMouseOver()"
     (mouseleave)="onMouseLeave()">
-
     <div id="frame" #frame>
     </div>
     <div id="logo">
@@ -13,8 +12,9 @@
     </div>
     <div id="rows">
         <div class="myRow" fxLayout="row">
-            <div id="position">
+            <div id="position" fxLayout="row">
                 <p >{{ offer.position }}</p>
+                <mat-icon *ngIf="this.offer.isHidden">lock</mat-icon>
             </div>
             <div fxLayout="row">
                 <div id="money">

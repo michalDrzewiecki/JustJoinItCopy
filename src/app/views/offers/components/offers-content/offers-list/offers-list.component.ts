@@ -9,10 +9,14 @@ import { OffersService } from '../../../services';
 })
 export class OffersListComponent implements OnInit {
   private offers: Offer[];
+  noOffers: boolean = false;
   
   constructor(private offersService: OffersService) {}
 
   ngOnInit(){
     this.offers = this.offersService.getOffers();
+    if(this.offers.length == 0){
+      this.noOffers = true;
+    }
   }
 }
