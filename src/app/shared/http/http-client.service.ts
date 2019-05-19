@@ -6,7 +6,6 @@ import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 import { AppRouterUrls } from 'src/app/app-routing.config';
 import { MyParams } from '../shared.enums';
-import { NavigationService } from '../services';
 
 @Injectable()
 export class HttpClientService{
@@ -46,7 +45,6 @@ export class HttpClientService{
             let data:{user: User, token:{expiresIn: number, token: string}} = <{user: User, token:{expiresIn: number, token: string}}>response.valueOf();
             this.cookieService.set(this.cookie, data.token.token);
             this.cookieService.set(this.cookieUser, data.user.name + " " + data.user.surname);
-            this.params = this.defaultParams;
         }
         return response;
     }  
@@ -67,7 +65,7 @@ export class HttpClientService{
     public logout():void{
         this.cookieService.delete(this.cookieUser);
         this.cookieService.delete(this.cookie);
-        this.params = this.defaultParams;
+        console.log(this.isCookie());
         this.router.navigateByUrl(AppRouterUrls.LOGIN);
     }
 

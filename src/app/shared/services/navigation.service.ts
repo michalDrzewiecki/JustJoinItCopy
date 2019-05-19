@@ -2,7 +2,6 @@ import { AppRouterUrls } from '../../app-routing.config';
 import { ExperienceLevel, City, MyParams, Technology } from '../shared.enums';
 import { Subject } from 'rxjs';
 import { Router, UrlTree, UrlSegmentGroup, UrlSegment } from '@angular/router';
-import { HttpClientService } from '../http/http-client.service';
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -12,7 +11,7 @@ export class NavigationService {
     DEFAULT_PARAM: string = "all";
     result: Subject<{actual: string, last: string}> = new Subject<{actual: string, last: string}>();
 
-    constructor(private httpClientService: HttpClientService, private router: Router){
+    constructor( private router: Router){
         this.result.next({actual: this.DEFAULT_THEME,last: this.DARK_THEME});
         this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     }
@@ -88,7 +87,6 @@ export class NavigationService {
             }
         }
         finalParams[paramType] = param;
-        this.httpClientService.setParams(finalParams.slice());
         for(let i = finalParams.length-1; i >= 0; i--){
             if(finalParams[i] == this.DEFAULT_PARAM){
                 finalParams.pop();
@@ -108,5 +106,4 @@ export class NavigationService {
         let actualParams: string[] = this.getRouteParams(router);
         return actualParams[myParam];
     }
-
 }

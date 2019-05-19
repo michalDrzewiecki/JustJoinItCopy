@@ -41,7 +41,7 @@ export enum City{
     Kraków = 1,
     Wrocław = 1,
     Poznań = 1,
-    Trójmiasto = 1,
+    Gdańsk = 1,
     Remote = 1,
     World = 1,
     Białystok = 0,
