@@ -52,7 +52,7 @@ export class AuthRegisterComponent implements OnInit {
 
   setPasswordsInputError():void{
     this.password.setValue("");
-    this.password.setValue("");
+    this.repeatedPassword.setValue("");
     this.password.setErrors({'notTheSame': true});
     this.repeatedPassword.setErrors({'notTheSame': true});
   }

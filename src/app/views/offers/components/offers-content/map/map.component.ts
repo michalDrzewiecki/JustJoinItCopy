@@ -5,6 +5,7 @@ import { OffersService } from '../../../services';
 import { Offer } from '../../../offers.interfaces';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { HttpClientService } from 'src/app/shared/http';
 
 @Component({
   selector: 'app-map',
@@ -20,7 +21,11 @@ export class MapComponent implements OnInit, OnDestroy{
   offerSubscription: Subscription;
   lastMarker: CircleMarker;
 
-  constructor(private offersService: OffersService, private router: Router, private zone: NgZone, private route: ActivatedRoute) {}
+  constructor(private offersService: OffersService, 
+              private router: Router, 
+              private zone: NgZone, 
+              private route: ActivatedRoute,
+              private httpClientService: HttpClientService) {}
   
   ngOnInit(){
     this.offerSubscription = this.offersService.hoveredOfferChanged.subscribe((offer: Offer)=>{
@@ -41,7 +46,13 @@ export class MapComponent implements OnInit, OnDestroy{
     this.appRouterUrls = this.offersService.getAppRouterUrls();
     this.offers = this.offersService.getOffers();
     for (let offer of this.offers){
-      this.changeAddressIntoCoordinates(offer);
+      if(!offer.isAddressTransformed){
+        this.changeAddressIntoCoordinates(offer);
+      }
+      else{
+        this.createMarker({y: offer.yCoordinate, x: offer.xCoordinate}, offer);
+      }
+      
     }
     this.options = {
       attributionControl: false, 
@@ -69,6 +80,9 @@ export class MapComponent implements OnInit, OnDestroy{
                     + " " + offer.companyAddress.city; 
     result = await provider.search({ query: addressQuery });
     if(result[0] != null){
+      offer.yCoordinate = result[0].y;
+      offer.xCoordinate = result[0].x;
+      this.httpClientService.updateCoordinates(offer);
       this.createMarker(result[0], offer);
     }
   }

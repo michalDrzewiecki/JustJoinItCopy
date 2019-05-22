@@ -17,6 +17,7 @@ export class HttpClientService{
     loginUrl: string = "/login";
     staticData: string = "/staticData";
     offers: string = "/offers";
+    update: string = "/update";
 
     defaultParams: string[] = ["all", "all", "all", "all"];
     params: string[] = this.defaultParams;
@@ -51,11 +52,29 @@ export class HttpClientService{
 
     async loadOffers(): Promise<Offer[]>{
         let url: string = this.serverAddress + this.staticData + this.offers;
+        if(this.isCookie()){
+            this.params.push(this.getToken());
+        }
         return await this.http.post<Offer[]>(url, this.params).toPromise();
+    }
+
+    async updateCoordinates(offer: Offer){
+        let url: string = this.serverAddress + this.staticData + this.update;
+        let param: {routingTag: string, yCoordinate: number, xCoordinate: number} = {
+            routingTag: offer.routingTag,
+            yCoordinate: offer.yCoordinate,
+            xCoordinate: offer.xCoordinate
+        }
+        return await this.http
+            .post<{routingTag: string, yCoordinate: number, xCoordinate: number}>(url, param).toPromise();
     }
 
     public isCookie():boolean{
         return this.cookieService.get(this.cookie)? true : false;
+    }
+
+    private getToken(): string{
+        return this.cookieService.get(this.cookie);
     }
 
     public getUser():string{
@@ -63,9 +82,9 @@ export class HttpClientService{
     }
 
     public logout():void{
+        console.log("jestem");
         this.cookieService.delete(this.cookieUser);
         this.cookieService.delete(this.cookie);
-        console.log(this.isCookie());
         this.router.navigateByUrl(AppRouterUrls.LOGIN);
     }
 

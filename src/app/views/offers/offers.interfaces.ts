@@ -15,6 +15,9 @@ export interface Offer{
     insertionDate: Date,
     author: {name: string, surname: string},
     isHidden: boolean,
+    isAddressTransformed: boolean,
+    yCoordinate: number,
+    xCoordinate: number,
     color: string
 }
 
